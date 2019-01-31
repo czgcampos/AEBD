@@ -1,0 +1,535 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+body {
+  font-family: 'Helvetica Neue', 'Neue Helvetica', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  white-space: pre-wrap; 
+  white-space: -moz-pre-wrap;
+  word-wrap: break-word;
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+<title>Oracle REST Data Services Getting Started Guide</title>
+</head>
+<body>
+
+<h1>Introduction</h1><p>This document describes how to get started with developing RESTful Services using Oracle REST Data Services.</p><h2>Prerequisities</h2>
+<ul>
+  <li>Ensure sure you have completed installation of Oracle REST Data Services (ORDS) and configured it to connect to an Oracle database.</li>
+  <li>Ensure that you have installed Oracle SQL Developer 4.1 in order to be able to edit RESTful Services.</li>
+  <li>It is strongly recommended that you install a browser extension that enables you to view JSON in the web browser.</li>
+  <li>For Google Chrome, <a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa">JSON Formatter</a> is recommended.</li>
+  <li>For Mozilla Firefox, <a href="https://addons.mozilla.org/en-US/firefox/addon/jsonview/">JSON View</a> is recommended.</li>
+</ul><h2>About Examples in this document</h2><p>This document assumes your environment has been configured as follows:</p>
+<ul>
+  <li>ORDS has been installed and configured, and is running in Standalone mode on the following server, port and context path:  <code>localhost:8080/ords/</code></li>
+  <li>ORDS is configured to connect it's default connection to an Oracle Database listening on <code>localhost:1521</code> and the database has a service name of <code>orcl</code>.</li>
+</ul><p><a name="lesson-1"></a></p><h1>Lesson 1 - REST enable a database table</h1><h2>Create a database schema</h2><p>Let's create a database schema, that we can use to try out RESTful Services. In SQL Developer connect to the database as <code>sys</code> and enter the following in the SQL Worksheet:</p>
+<pre><code>CREATE USER ordstest IDENTIFIED BY password;
+GRANT &quot;CONNECT&quot; TO ordstest;
+GRANT &quot;RESOURCE&quot; TO ordstest;
+GRANT UNLIMITED TABLESPACE TO ordstest
+</code></pre>
+<ul>
+  <li>where <code>password</code> is the password for the <code>ordstest</code> user.</li>
+</ul><h2>Connect to ordstest Schema</h2><p>In SQL Developer create a connection to the <code>ordstest</code> schema, connect to it and open an SQL worksheet.</p><h2>Create a database table</h2><p>Enter the following in the SQL Worksheet to create an example table:</p>
+<pre><code><br/>CREATE TABLE EMP (
+  EMPNO NUMBER(4,0), 
+	ENAME VARCHAR2(10 BYTE), 
+	JOB VARCHAR2(9 BYTE), 
+	MGR NUMBER(4,0), 
+	HIREDATE DATE, 
+	SAL NUMBER(7,2), 
+	COMM NUMBER(7,2), 
+	DEPTNO NUMBER(2,0), 
+	CONSTRAINT PK_EMP PRIMARY KEY (EMPNO)
+  );
+</code></pre><h3>Insert some sample data</h3><p>Execute the following insert statements to add some sample data to the <code>EMP</code> table:</p>
+<pre><code>Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values (7369,&#39;SMITH&#39;,&#39;CLERK&#39;,7902,to_date(&#39;17-DEC-80&#39;,&#39;DD-MON-RR&#39;),800,null,20);
+Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values (7499,&#39;ALLEN&#39;,&#39;SALESMAN&#39;,7698,to_date(&#39;20-FEB-81&#39;,&#39;DD-MON-RR&#39;),1600,300,30);
+Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values (7521,&#39;WARD&#39;,&#39;SALESMAN&#39;,7698,to_date(&#39;22-FEB-81&#39;,&#39;DD-MON-RR&#39;),1250,500,30);
+Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values (7566,&#39;JONES&#39;,&#39;MANAGER&#39;,7839,to_date(&#39;02-APR-81&#39;,&#39;DD-MON-RR&#39;),2975,null,20);
+Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values (7654,&#39;MARTIN&#39;,&#39;SALESMAN&#39;,7698,to_date(&#39;28-SEP-81&#39;,&#39;DD-MON-RR&#39;),1250,1400,30);
+Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values (7698,&#39;BLAKE&#39;,&#39;MANAGER&#39;,7839,to_date(&#39;01-MAY-81&#39;,&#39;DD-MON-RR&#39;),2850,null,30);
+Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values (7782,&#39;CLARK&#39;,&#39;MANAGER&#39;,7839,to_date(&#39;09-JUN-81&#39;,&#39;DD-MON-RR&#39;),2450,null,10);
+Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values (7788,&#39;SCOTT&#39;,&#39;ANALYST&#39;,7566,to_date(&#39;19-APR-87&#39;,&#39;DD-MON-RR&#39;),3000,null,20);
+Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values (7839,&#39;KING&#39;,&#39;PRESIDENT&#39;,null,to_date(&#39;17-NOV-81&#39;,&#39;DD-MON-RR&#39;),5000,null,10);
+Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values (7844,&#39;TURNER&#39;,&#39;SALESMAN&#39;,7698,to_date(&#39;08-SEP-81&#39;,&#39;DD-MON-RR&#39;),1500,0,30);
+Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values (7876,&#39;ADAMS&#39;,&#39;CLERK&#39;,7788,to_date(&#39;23-MAY-87&#39;,&#39;DD-MON-RR&#39;),1100,null,20);
+Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values (7900,&#39;JAMES&#39;,&#39;CLERK&#39;,7698,to_date(&#39;03-DEC-81&#39;,&#39;DD-MON-RR&#39;),950,null,30);
+Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values (7902,&#39;FORD&#39;,&#39;ANALYST&#39;,7566,to_date(&#39;03-DEC-81&#39;,&#39;DD-MON-RR&#39;),3000,null,20);
+Insert into EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO) values (7934,&#39;MILLER&#39;,&#39;CLERK&#39;,7782,to_date(&#39;23-JAN-82&#39;,&#39;DD-MON-RR&#39;),1300,null,10);
+commit;
+</code></pre><h2>Enable the EMP table for REST</h2><p>In SQL Developer right click on the <code>ordstest</code> connection, and choose 'REST Services| Enable RESTful Services...', the following dialog appears:</p><p><img src="./enable-rest-services-1.png" alt="Enable RESTful Services Wizard Step 1 of 3""/></p>
+<ul>
+  <li>Ensure the 'Enable Schema' check box is ticked</li>
+  <li>To make demonstrating the service easier we will disable authorisation, ensure the 'Authorization required' check box is not ticked.</li>
+  <li>Click the 'Next' Button, the following dialog appears:</li>
+</ul><p><img src="./enable-rest-services-2.png" alt="Enable RESTful Services Wizard Step 2 of 2""/></p><p>Next right click on the <code>EMP</code> table, and choose 'Enable RESTful Services...', the following dialog appears:</p><p><img src="./enable-rest-services-3.png" alt="Enable RESTful Services Wizard Step 2 of 2""/></p>
+<ul>
+  <li>Ensure the 'Enable Object' check box is ticked</li>
+  <li>To make demonstrating the service easier we will disable authorisation, ensure the 'Authorization required' check box is not ticked.</li>
+  <li>Click the 'Next' Button, the following dialog appears:</li>
+</ul><p><img src="./enable-rest-services-4.png" alt="Enable RESTful Services Wizard Step 2 of 2""/></p>
+<ul>
+  <li>Click the 'Finish' button</li>
+</ul><p>The <code>EMP</code> table is now exposed as a REST HTTP endpoint.</p><h2>Test the REST Endpoint</h2><p>In a web browser enter the following URL:</p>
+<pre><code>http://localhost:8080/ords/ordstest/emp/
+</code></pre>
+<ul>
+  <li>The <code>ORDSTEST</code> schema has been exposed at the <code>/ordstest/</code> path</li>
+  <li>The <code>EMP</code> table has been exposed at the <code>/emp/</code> table</li>
+</ul><p>A JSON document similar to the following will be displayed:</p><p><img src="./emp-json.png" alt="EMP Table JSON""/></p><p><a name="lesson-2"></a></p><h1>Lesson 2 - Create a RESTful Service from an SQL Query</h1><h2>Configure RESTful Services User</h2><p>Oracle REST Data Services provides a REST API (called the Resource Modules API) that enables Oracle SQL Developer to create and edit RESTful Service definitions. Access to the Resource Modules API is protected, a user with the correct role must be provisioned and the created user's credentials must be used when accessing the API from SQL Developer.</p><p>In the folder where Oracle REST Data Services was installed, enter the following command in a command prompt:</p>
+<pre><code>java -jar ords.war user test_developer &quot;SQL Developer&quot;
+</code></pre>
+<ul>
+  <li>You will be prompted to enter a password</li>
+  <li>This creates a user named <code>test_developer</code> and grants the user the role named <code>SQL Developer</code></li>
+  <li>Only users with the <code>SQL Developer</code> role are permitted to access the Resource Modules API</li>
+  <li>The user details are stored in a file named <code>credentials</code> in the ORDS configuration folder</li>
+</ul><p><strong>Tip</strong>: It is not recommended to store user credentials in the <code>credentials</code> file in production deployments, instead users should be provisioned in the host application server. </p><h2>Create RESTful Service</h2><p><strong>Tip</strong>: To complete this step Oracle REST Data Services must be running <strong>Tip</strong>: To complete this step the <code>ordstest</code> schema must have been created, and the schema enabled for use with ORDS, see <a href="#lesson-1">Lesson 1</a> in this tutorial.</p><h3>Create RESTful Connection</h3>
+<ul>
+  <li>In SQL Developer select 'View|REST Data Services|Development' from the main menu.</li>
+  <li>The 'REST Development' pane will appear on the left of the screen.</li>
+  <li>Right click on the 'REST Data Services' label, choose 'Connect...'</li>
+  <li>The following dialog is displayed:</li>
+</ul><p><img src="./rest-connection-1.png" alt="Create REST Connection 1""/></p>
+<ul>
+  <li>Click the '+' button, the following dialog appears:</li>
+</ul><p><img src="./rest-connection-2.png" alt="Create REST Connection 1""/></p>
+<ul>
+  <li>Enter <code>ordstest</code> for the 'Connection Name'</li>
+  <li>Enter <code>test_developer</code> for the 'UserName'</li>
+  <li>Enter <code>localhost</code> for the 'Hostname'</li>
+  <li>Enter <code>8080</code> for the 'Port'</li>
+  <li>Enter <code>ordstest</code> for the 'Workspace'</li>
+  <li>Press 'OK' to close and save the connection</li>
+  <li>Press 'OK' to use the newly created connection</li>
+  <li>Enter the password for the <code>test_developer</code> user in the prompt that appears.</li>
+</ul><p>The existing Modules and Privileges will be loaded, if this is your first time using this tutorial, then there will be no Modules or Privileges yet.</p><h3>Create Module</h3>
+<ul>
+  <li>Right click on the 'Modules' node in the 'REST Development' view, click 'New Module...', the following dialog will appear:</li>
+</ul><p><img src="./resource-module-1.png" alt="Create Resource Module 1""/></p>
+<ul>
+  <li>Enter <code>test</code> for the 'Module Name'</li>
+  <li>Enter <code>/test</code> for the 'URI Prefix</li>
+  <li>Ensure the 'Publish' check box is ticked</li>
+  <li>Set the 'Pagination Size' to <code>7</code></li>
+  <li>Click the 'Next' button, the following dialog is displayed:</li>
+</ul><p><img src="./resource-module-2.png" alt="Create Resource Module 2""/></p>
+<ul>
+  <li>Enter <code>/emp/</code> for the 'URI Template'</li>
+  <li>Click the 'Next' button, the following dialog is displayed:</li>
+</ul><p><img src="./resource-module-3.png" alt="Create Resource Module 3""/></p>
+<ul>
+  <li>Ensure the 'Requires Secure Access' check box is not ticked</li>
+  <li>Set the 'Pagination Size' to <code>7</code></li>
+  <li>Click the 'Next' button, the following dialog is displayed:</li>
+</ul><p><img src="./resource-module-4.png" alt="Create Resource Module 4""/></p>
+<ul>
+  <li>Click the 'Finish' button</li>
+</ul><p>The resource module is created, the next step is to define the query for the <code>GET</code> resource handler.</p><h3>Define Resource Handler Query</h3>
+<ul>
+  <li>Expand the <code>test</code> node under the 'Modules' node in the 'REST Development' view</li>
+  <li>Expand the <code>/emp/</code> node and right click the <code>GET</code> node and select 'Open'</li>
+  <li>An SQL Worksheet opens for <code>GET /emp/</code>, enter the following SQL query in the worksheet:  <code>
+  select * from emp
+</code></li>
+  <li>Right click on the <code>test</code> node under the 'Modules' node in the 'REST Development' view</li>
+  <li>Click 'Upload...'. A confirmation dialog will appear confirming the module has been uploaded.</li>
+</ul><h3>Test RESTful Service</h3><p>In a web browser enter the following URL:</p>
+<pre><code>http://localhost:8080/ords/ordstest/test/emp/
+</code></pre>
+<ul>
+  <li>The <code>ORDSTEST</code> schema has been exposed at the <code>/ordstest/</code> path</li>
+  <li>The RESTful Service has been exposed at the <code>/test/emp/</code> path</li>
+</ul><p>A JSON document similar to the following will be displayed:</p><p><img src="./emp-rest-json.png" alt="EMP REST JSON""/></p><p><a name="lesson-3"></a></p><h1>Lesson 3 - Protecting Resources</h1><h2>About Protected Resources</h2><p>Up to this point we have deliberately disabled security on the RESTful endpoints we have created, because it is easier to test them without security. In this lesson we will protect the <code>/test/emp/</code> service, requiring users to authenticate before accessing the service.</p><p>Controlling access to protected resources is done by defining 'Privileges'. Privileges restrict access to only users having at least one of a set of specified roles. A privilege is then associated with one or more Resource Modules, before those Resource Modules can be accessed the user must be authenticated, and then authorised to ensure they have one of the required roles.</p><h2>Create a Privilege</h2>
+<ul>
+  <li>Right click on the 'Privileges' node in the 'REST Development' view, click 'New Privileges...', the following dialog will appear:</li>
+</ul><p><img src="./privilege.png" alt="Create Privilege""/></p>
+<ul>
+  <li>Enter <code>test</code> for the 'Name' value</li>
+  <li>Enter <code>Example Privilege</code> for the 'Title' value</li>
+  <li>Enter <code>Demonstrate controlling access with Privileges</code> for 'Description' value</li>
+  <li>Ensure the <code>test</code> Module is listed in the 'Protected Modules' shuttle box.</li>
+  <li>Click 'Apply'</li>
+  <li>Right click on the <code>test</code> Privilege and click 'Upload'. A confirmation dialog will appear confirming the privilege has been uploaded.</li>
+</ul><p>We have created a Privilege that protects the <code>test</code> module. We have not restricted it to any particular role, this will just require that the user be authenticated before accessing the <code>test</code> module.</p><h3>Test RESTful Service</h3><p>In a web browser enter the following URL:</p>
+<pre><code>http://localhost:8080/ords/ordstest/test/emp/
+</code></pre><p>You will now be prompted to sign in. Click the link to sign-in and enter the <code>test_developer</code> credentials. The contents of the JSON document will now be displayed.</p><p><a name="lesson-4"></a></p><h1>Lesson 4 - Register an OAuth Client Application</h1><h2>About OAuth 2.0</h2><p>OAuth 2.0 is a standard Internet protocol that provides a means for HTTP servers providing REST APIs to give limited access to third party applications on <strong>behalf</strong> of an end user.</p>
+<ul>
+  <li>The author of the third party application must register the application to gain client credentials.</li>
+  <li>Using the client credentials the third party application starts a web flow that prompts the end-user to approve access.</li>
+</ul><p>So before a third party application can access a REST API it must be registered and the user must approve access.</p><p>This lesson outlines how to complete these steps. It is <em>not</em> a full featured demonstration of how to create and integrate a third party application, it just outlines the concepts involved.</p><h3>About Third Party Users</h3><p>Before a third party can register an application they must be assigned a user identity that enables them to register applications. Users possessing the <code>SQL Developer</code> (such as the <code>test_developer</code> user created in Lesson 1) are permitted to register OAuth clients.</p><p><em>Tip</em> In a real application you may wish to provision particular users that can register OAuth clients, these users should be granted the <code>OAuth Client Developer</code> role.</p><h2>Register a Client Application</h2><p>In a web browser enter the following URL:</p>
+<pre><code>http://localhost:8080/ords/ordstest/oauth/admin/clients/
+</code></pre>
+<ul>
+  <li>You will be prompted to sign in, click the link and enter the credentials for the <code>test_developer</code> user</li>
+  <li>Click the 'New Client' button</li>
+  <li>Enter <code>Test Client</code> for the 'Name' field</li>
+  <li>Enter <code>An example OAuth Client</code> for the 'Description' field</li>
+  <li>Enter <code>http://example.org/redirect</code> for the 'Redirect URI' field</li>
+  <li>Enter <code>info@example.org</code> for the 'Support e-mail' field</li>
+  <li>Enter <code>http://example.org/support</code> for the 'Support URI' field</li>
+  <li>Choose <code>Example Privilege</code> for the 'Required Privileges' field</li>
+  <li>Click the 'Create' button</li>
+</ul><p>The client registration is created, and the 'Authorization URI' for the client is displayed. We have created a client that will use the <a href="https://tools.ietf.org/html/rfc6749#section-4.2">'Implicit Grant' authorisation flow</a>.</p><p><em>Tip</em> Make a note of the 'Client Identififer' assigned to the client and the 'Authorization URI' value. These values are used to start the authorization flow.</p><h2>Approving a Client Application</h2><p>In a real third party client application, the client will initiate the approval flow by directing a web browser to the 'Authorization URI'. The end user will be prompted to sign in and approve access to the client application. The browser will be redirected back to the client's registered 'Redirect URI' with a URI fragment containing the <code>access_token</code> for the approval. </p><p>To simulate this process, enter the 'Authorization URI' that was noted in the previous step in a web browser, the URL should look like the following:</p>
+<pre><code>http://localhost:8080/ords/ordstest/oauth/auth?response_type=token&amp;client_id=5B77A34A266EFB0056BE3497ED7099.&amp;state=d5b7944-d27d-8e2c-4d5c-fb80e1114490&amp;_auth_=force
+</code></pre>
+<ul>
+  <li>The <code>client_id</code> value must be the value of the client identifier assigned to the application, make sure you are using the correct <code>client_id</code> value. Do not use the value in the example above, replace it with the client identifier assigned to your application.</li>
+  <li>The <code>state</code> value should be a unique unguessable value that the client remembers, and can use later to confirm that the redirect received from ORDS is in response to this authorisation request. This value is used to prevent Cross Site Request Forgery attacks, it is very important, cannot be omitted, and must not be guessable or discoverable by an attacker.</li>
+  <li>You will be prompted to sign in, click the link and enter the credentials for the <code>test_developer</code> user</li>
+  <li>Review the access being requested and click the 'Approve' button</li>
+  <li>The browser is redirected to a URL similar to the following:</li>
+</ul>
+<pre><code>http://example.org/redirect#token_type=bearer&amp;access_token=-i_Ows8j7JYu0p07jOFMEA..&amp;expires_in=3600
+</code></pre>
+<ul>
+  <li><code>http://example.org</code> is a sample domain provided by <a href="http://en.wikipedia.org/wiki/Example.com">ICANN</a>, that can be used for demonstration purposes</li>
+  <li>When registering the OAuth client we specified <code>http://example.org/redirect</code> as the 'Redirect URI', on completion of the approval request, the browser was redirected to this registered redirect URI. Appended to the URI is the information about the access token that was generated for the approval.</li>
+  <li>In a real application the third party application would respond to the redirect to the redirect URI by caching the access token, redirecting to another page to show the user that they are now authorised to access the REST API, and include the access token in every subsequent request to the REST API.</li>
+  <li>In this tutorial we will just make note of the access token value and manually create a HTTP request with the access token included, as explained in the next step.</li>
+  <li>In the above example the value of the access token is <code>-i_Ows8j7JYu0p07jOFMEA..</code>, the value will change on every approval, please make note of the actual access token you received.</li>
+  <li>Note that the token expires, in this example it expires after <code>3600</code> seconds, i.e one hour.</li>
+</ul><h2>Issuing an Authorized Request</h2><p>Once an access token has been acquired, the client application needs to remember the access token and include it with every request to the protected resource. The access token must be included in the <a href="http://tools.ietf.org/html/rfc2616#section-14.8">HTTP Authorization request header</a> as shown below:</p>
+<pre><code>Host: localhost:8080
+GET /ords/ordstest/test/emp/
+Authorization: Bearer -i_Ows8j7JYu0p07jOFMEA..
+</code></pre><h3>Create HTTP Request</h3><p>To demonstrate creating a valid HTTP request we will use the <a href="http://curl.haxx.se">cURL</a> command line tool (Install cURL using the preceding link if necessary), in a real application this request would be performed by the client making a HTTP request, for example performing an <a href="http://www.w3.org/TR/XMLHttpRequest/">XMLHttpRequest</a>.</p>
+<ul>
+  <li>Enter the following command in a command prompt</li>
+</ul>
+<pre><code>curl -i -H&#39;Authorization: Bearer -i_Ows8j7JYu0p07jOFMEA..&#39; http://localhost:8080/ords/ordstest/test/emp/
+</code></pre>
+<ul>
+  <li>Replacing <code>-i_Ows8j7JYu0p07jOFMEA..</code> with the value of the access token you noted in the previous step</li>
+  <li>Output similar to the following should be displayed:</li>
+</ul>
+<pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+Transfer-Encoding: chunked
+
+{
+ &quot;items&quot;:[
+  {&quot;empno&quot;:7369,&quot;ename&quot;:&quot;SMITH&quot;,&quot;job&quot;:&quot;CLERK&quot;,&quot;mgr&quot;:7902,&quot;hiredate&quot;:&quot;1980-12-17T00:00:00Z&quot;,&quot;sal&quot;:800,&quot;comm&quot;:null,&quot;deptno&quot;:20},
+  {&quot;empno&quot;:7499,&quot;ename&quot;:&quot;ALLEN&quot;,&quot;job&quot;:&quot;SALESMAN&quot;,&quot;mgr&quot;:7698,&quot;hiredate&quot;:&quot;1981-02-20T00:00:00Z&quot;,&quot;sal&quot;:1600,&quot;comm&quot;:300,&quot;deptno&quot;:30},
+  {&quot;empno&quot;:7521,&quot;ename&quot;:&quot;WARD&quot;,&quot;job&quot;:&quot;SALESMAN&quot;,&quot;mgr&quot;:7698,&quot;hiredate&quot;:&quot;1981-02-22T00:00:00Z&quot;,&quot;sal&quot;:1250,&quot;comm&quot;:500,&quot;deptno&quot;:30},
+  {&quot;empno&quot;:7566,&quot;ename&quot;:&quot;JONES&quot;,&quot;job&quot;:&quot;MANAGER&quot;,&quot;mgr&quot;:7839,&quot;hiredate&quot;:&quot;1981-04-01T23:00:00Z&quot;,&quot;sal&quot;:2975,&quot;comm&quot;:null,&quot;deptno&quot;:20},
+  {&quot;empno&quot;:7654,&quot;ename&quot;:&quot;MARTIN&quot;,&quot;job&quot;:&quot;SALESMAN&quot;,&quot;mgr&quot;:7698,&quot;hiredate&quot;:&quot;1981-09-27T23:00:00Z&quot;,&quot;sal&quot;:1250,&quot;comm&quot;:1400,&quot;deptno&quot;:30},
+  {&quot;empno&quot;:7698,&quot;ename&quot;:&quot;BLAKE&quot;,&quot;job&quot;:&quot;MANAGER&quot;,&quot;mgr&quot;:7839,&quot;hiredate&quot;:&quot;1981-04-30T23:00:00Z&quot;,&quot;sal&quot;:2850,&quot;comm&quot;:null,&quot;deptno&quot;:30},
+  {&quot;empno&quot;:7782,&quot;ename&quot;:&quot;CLARK&quot;,&quot;job&quot;:&quot;MANAGER&quot;,&quot;mgr&quot;:7839,&quot;hiredate&quot;:&quot;1981-06-08T23:00:00Z&quot;,&quot;sal&quot;:2450,&quot;comm&quot;:null,&quot;deptno&quot;:10}
+ ],
+ &quot;hasMore&quot;:true,
+ &quot;limit&quot;:7,
+ &quot;offset&quot;:0,
+ &quot;count&quot;:7,
+ &quot;links&quot;:[
+  {&quot;rel&quot;:&quot;self&quot;,&quot;href&quot;:&quot;http://localhost:8080/ords/ordstest/test/emp/&quot;},
+  {&quot;rel&quot;:&quot;describedby&quot;,&quot;href&quot;:&quot;http://localhost:8080/metadata-catalog/test/emp/&quot;},
+  {&quot;rel&quot;:&quot;first&quot;,&quot;href&quot;:&quot;http://localhost:8080/ords/ordstest/test/emp/&quot;},
+  {&quot;rel&quot;:&quot;next&quot;,&quot;href&quot;:&quot;http://localhost:8080/ords/ordstest/test/emp/?offset=7&quot;}
+ ]
+}
+</code></pre>
+<ul>
+  <li>The JSON document is returned successfully, if the <code>Authorization</code> header is omitted then a <code>401 Unauthorized</code> status will be returned instead</li>
+</ul><h1>Further Reading</h1><p>Please consult the Oracle REST Data Services Developer Guide for further information on developing, securing and accessing RESTful Services.</p>
+</body>
+</html>

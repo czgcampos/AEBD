@@ -1,0 +1,28 @@
+extends header
+block content
+	table.w3-table-all.w3-responsive
+		tr
+			th Sid
+			th Username
+			th Status
+			th Server
+			th Schema Name
+			th OS User
+			th Machine
+			th Port
+			th Type
+			th Logon Time
+			th Timestamp
+		each ss in lista
+			tr
+				td= ss.sid
+				td= ss.username
+				td= ss.status
+				td= ss.server
+				td= ss.schemaname
+				td= ss.osuser
+				td= ss.machine
+				td= ss.port
+				td= ss.yype
+				td= ss.logontime
+				td= ss.timestamp

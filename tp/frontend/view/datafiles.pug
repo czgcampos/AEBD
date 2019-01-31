@@ -1,0 +1,28 @@
+extends header
+block content
+	table.w3-table-all.w3-responsive
+		tr
+			th Filename
+			th Fileid
+			th Tablename
+			th Bytes
+			th Blocks
+			th Status
+			th Autoextensible
+			th Maxbytes
+			th Maxblocks
+			th Onlinestatus
+			th Timestamp
+		each dt in lista
+			tr
+				td= dt.filename
+				td= dt.fileid
+				td= dt.tablename
+				td= dt.bytes
+				td= dt.blocks
+				td= dt.status
+				td= dt.autoextensible
+				td= dt.maxbytes
+				td= dt.maxblocks
+				td= dt.onlinestatus
+				td= dt.timestamp

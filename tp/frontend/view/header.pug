@@ -1,0 +1,32 @@
+extends layout
+block header
+	.w3-card-4
+		header.w3-container.w3-teal
+			h1 DataBase Monitor
+		.w3-container
+			.w3-row
+				.w3-col.m3.l2
+					ul
+						li
+							a.w3-button.w3-teal(href='http://localhost:5000/datafiles' style='padding:8px 26px') DataFiles
+						br
+						li
+							a.w3-button.w3-teal(href='http://localhost:5000/sessions' style='padding:8px 29px') Sessions
+						br
+						li
+							a.w3-button.w3-teal(href='http://localhost:5000/cpu' style='padding:8px 45.5px') CPU
+						br
+						li
+							a.w3-button.w3-teal(href='http://localhost:5000/pga' style='padding:8px 45.5px') PGA
+						br
+						li
+							a.w3-button.w3-teal(href='http://localhost:5000/sga' style='padding:8px 45.5px') SGA
+						br
+						li
+							a.w3-button.w3-teal(href='http://localhost:5000/tablespaces') Tablespaces
+						br
+						li
+							a.w3-button.w3-teal(href='http://localhost:5000/users' style='padding:8px 40px') Users
+				.w3-col.m9.l10
+					br
+					block content

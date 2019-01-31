@@ -1,0 +1,12 @@
+extends header
+block content
+	table.w3-table-all.w3-responsive
+		tr
+			th Username
+			th CPU Usage
+			th Timestamp
+		each cpu in lista
+			tr
+				td= cpu.username
+				td= cpu.cpuusage
+				td= cpu.timestamp

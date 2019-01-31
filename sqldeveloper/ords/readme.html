@@ -1,0 +1,595 @@
+<html>
+ <head>
+   <link href="data:image/x-icon;base64,AAABAAEAICAQAAEABADoAgAAFgAAACgAAAAgAAAAQAAAAAEABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAOkAAAH1AAIA+wAAAP8AIiTyAERH9gBfYfgAdnr5AImM9gCio/sAurv8ANjZ/QDn6f8A8vH/APv9/wAAAAAA///////////////////////////////yP/////////////////8zMQEz//////////////8yIREAADP///////////8yIRERAAAAI/////////8zIRF67u2nAAAT////////MSFO7u3u7uQAA////////zETnu2pmu7YAAP///////8xMqh5zuuYiAAD////////MRFe7u3u7uUAAP//////8zExne6pqu7YQAE///////MRE6h5vtuYiAAAP//////zMzJe7u3u3uUAAD//////8xETre6qm+7YAAA///////MREah5vMuImAAAP//////zEzNe7u7u7sUAAD//////8RMRne7e7u7oAAA///////MxIRnu7t7ugAAAD/////8zESERFGd2QAAAAAP/////MTERIbMXUEoAAAAD/////zEhMU3lCmB9xAAAA/////8xEhIeWDuAl7AAAAP/////MRMxxBMbgABrAAAD/////zEUZxERHZAAAIZAAf////8hExERFs7eQAAAAAH////zMzERMxKu5wAAAAABP///8yERIxERHsAAAAAAAT////MzIREyIxYAAAAAABE/////8zMzIRERAAAAETM/////////8zMzIgASMz//////////////8zMzP/////////////////////////////////////5////wD///wAP//wAA//wAAD/8AAA//AAAP/wAAD/8AAA/+AAAH/gAAB/4AAAf+AAAH/gAAB/4AAAf+AAAH/gAAB/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP4AAAB+AAAAfgAAAH+AAAH/+AAf//+B///////w==" rel="icon" type="image/x-icon" />
+   <title>Oracle REST Data Services (3.0.12) Release Notes</title>
+   <style type="text/css" media="screen">
+   html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}header{display:block}a{background:0 0}a:active,a:hover{outline:0}img{border:0}pre{overflow:auto}button::-moz-focus-inner,input::-moz-focus-inner{padding:0;border:0}@media print{*{color:#000!important;text-shadow:none!important;background:0 0!important;-webkit-box-shadow:none!important;box-shadow:none!important}a,a:visited{text-decoration:underline}a[href]:after{content:" (" attr(href) ")"}pre{border:1px solid #999;page-break-inside:avoid}img{page-break-inside:avoid;max-width:100%!important}h2,p{orphans:3;widows:3}h2{page-break-after:avoid}.navbar{display:none}}@font-face{font-family:'Glyphicons Halflings';src:url(../fonts/glyphicons-halflings-regular.eot);src:url(../fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'),url(../fonts/glyphicons-halflings-regular.woff) format('woff'),url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'),url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')}*,:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}html{font-size:10px;-webkit-tap-highlight-color:transparent}body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:12px;line-height:1.42857143;color:#333;background-color:#fff}a{color:#428bca;text-decoration:none}a:focus,a:hover{color:#2a6496;text-decoration:underline}a:focus{outline:dotted thin;outline:-webkit-focus-ring-color auto 5px;outline-offset:-2px}img{vertical-align:middle}h2{font-family:inherit;font-weight:500;line-height:1.1;color:inherit}h2 small{font-weight:400;line-height:1;color:#777}h2{margin-top:17px;margin-bottom:8.5px}h2 small{font-size:65%}h2{font-size:25px}p{margin:0 0 8.5px}small{font-size:91%}ul{margin-top:0;margin-bottom:8.5px}pre{font-family:Menlo,Monaco,Consolas,"Courier New",monospace;display:block;padding:8px;margin:0 0 8.5px;font-size:11px;line-height:1.42857143;color:#333;word-break:break-all;word-wrap:break-word;background-color:#f5f5f5;border:1px solid #ccc;border-radius:4px}.container{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}@media (min-width:768px){.container{width:750px}}@media (min-width:992px){.container{width:970px}}@media (min-width:1200px){.container{width:1170px}}.form-control::-moz-placeholder{color:#777;opacity:1}.form-control:-ms-input-placeholder{color:#777}.navbar{position:relative;min-height:50px;margin-bottom:17px;border:1px solid transparent}@media (min-width:768px){.navbar{border-radius:4px}}@media (min-width:768px){.navbar-header{float:left}}.container>.navbar-header{margin-right:-15px;margin-left:-15px}@media (min-width:768px){.container>.navbar-header{margin-right:0;margin-left:0}}.navbar-static-top{z-index:1000;border-width:0 0 1px}@media (min-width:768px){.navbar-static-top{border-radius:0}}.navbar-brand{float:left;height:50px;padding:16.5px 15px;font-size:15px;line-height:17px}.navbar-brand:focus,.navbar-brand:hover{text-decoration:none}@media (min-width:768px){.navbar>.container .navbar-brand{margin-left:-15px}}.navbar-default{background-color:#f0f0f0;border-color:#dfdfdf}.navbar-default .navbar-brand{color:#707070}.navbar-default .navbar-brand:focus,.navbar-default .navbar-brand:hover{color:#222;background-color:transparent}.alert{padding:15px;margin-bottom:17px;border:1px solid transparent;border-radius:4px}.alert-danger{color:#a94442;background-color:#f2dede;border-color:#ebccd1}.container:after,.container:before,.navbar-header:after,.navbar-header:before,.navbar:after,.navbar:before{display:table;content:" "}.container:after,.navbar-header:after,.navbar:after{clear:both}@-ms-viewport{width:device-width}
+   </style>
+  </head>
+<body>
+
+<header  class="navbar navbar-default navbar-static-top" id="top" role="banner">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" style="padding:5.5px 15px;" href="http://www.oracle.com/technetwork/developer-tools/rest-data-services/overview/index.html" target="_blank"><img style="height:40px;margin-right:5px;" src="data:image/png;base64,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" />ORACLE REST DATA SERVICES</a>
+      </div>
+    </div>
+  </header>
+<div class="container">
+<header><h1>Oracle REST Data Services 3.0.12.263.15.32</h1>
+ <h2>Release Notes</h2>
+ <p><strong>Date: September 2017</strong></p>
+</header>
+<h3><a href="http://www.oracle.com/technetwork/developer-tools/rest-data-services/overview/index.html" target="_blank">Oracle REST Data Services on OTN</a> | <a href="http://www.oracle.com/technetwork/developer-tools/rest-data-services/downloads/index.html" target="_blank">Downloads</a> | <a href="https://community.oracle.com/community/database/developer-tools/oracle_rest_data_services" target="_blank">Forum</a></h3>
+<a id="support"></a><h2>Support</h2>
+<ul>
+    <li>You are supported by Oracle Support under your current Oracle Database or Oracle NoSQL Database Support license for Oracle REST Data Services <em>production releases</em>.</li>
+    <li><p>Log Oracle REST Data Services bugs and issues using <a href="http://support.oracle.com">My Oracle Support</a>.</p>
+     <ul>
+      <li>For problems specific to SODA for REST, file a service request using <em>"Oracle XML Developers Kit"</em> as the product.</li>
+      <li>For <em>all</em> other problems, use <em>"Oracle REST Data Services"</em> as the product.</li>
+     </ul>
+    </li>
+</ul>
+<a id="Documentation"></a><h2>Documentation</h2>
+<ul>
+    <li>Documentation for this release is provided on the OTN web site. Click <a href="http://www.oracle.com/technetwork/developer-tools/rest-data-services/documentation/index.html">here</a> to view the documentation.</li>
+    <li>Documentation on using SODA for REST is provided on the OTN <a href="http://www.oracle.com/technetwork/developer-tools/rest-data-services/documentation/index.html">here</a>.</li>
+</ul>
+<h3>Getting Started</h3>
+<ul>
+    <li>A tutorial on getting started with developing RESTful Services is included in the <a href="http://www.oracle.com/technetwork/developer-tools/rest-data-services/documentation/index.html">product documentation</a>, in the section titled 'Appendix E: Getting Started with RESTful Services'.</li>
+    <li>A tutorial on getting started with developing NoSQL RESTful Services is provided in this distribution, and can be viewed <a href="./examples/getting-started-nosql/index.html">here</a>.</li>
+</ul>
+<a id="feedback"></a><h2>Feedback</h2>
+<ul>
+    <li>You can discuss issues on the <a href="https://community.oracle.com/community/database/developer-tools/oracle_rest_data_services">forums.</a>
+    <ul>
+        <li>Be sure to use clear subject lines to initiate a thread. Provide a complete and clear description of the issue, including steps to reproduce the issue.</li>
+        <li>Try to avoid using old, unrelated threads for a new issue.</li>
+    </ul>
+    </li>
+</ul>
+<h2>Important Changes to Note</h2>
+<h3>Excel worksheet to Application Express Collection upload feature removed</h3>
+<p>
+  The facility to upload Excel Worksheets to Oracle Application Express collections has been removed. The facility is incompatible with Application Express 5.1. Concerns about the robustness of the library used to parse the Excel worksheets has forced removal of this feature from 3.0.10 and future releases.
+</p>
+<h3>APEX_PUBLIC_USER &amp; wwv_flow_epg_include_modules.authorize</h3>
+<p>
+  In line with security best practice and as recommended by the <a href="http://docs.oracle.com/cd/E59726_01/doc.50/e39147/sec_admin_ssl.htm#HTMDB30033">Oracle Application Express Documentation</a>
+  when a database pool is configured to use the <code>APEX_PUBLIC_USER</code>, Oracle REST Data Services will automatically set the value of the <code>security.requestValidationFunction</code> setting to be:
+  <pre>
+    <code>WWV_FLOW_EPG_INCLUDE_MODULES.AUTHORIZE</code>
+  </pre>
+  This activates the white list of callable procedures which ships with Oracle Application Express and <em>prohibits calls to other procedures</em>. Please
+  consult the <a href="http://docs.oracle.com/cd/E59726_01/doc.50/e39147/sec_admin_ssl.htm#HTMDB30033">Oracle Application Express Documentation</a> for more information about this procedure and how to customize it's behaviour.
+</p>
+<h3>Extracting ORDS Scripts - Deprecated</h3>
+<p>The extract ords-scripts command is deprecated.  Manual install, upgrade, validate and
+uninstall using SQL scripts will no longer be supported in ORDS future releases.
+Refer to Oracle REST Data Services documentation to install, upgrade, validate or uninstall Oracle REST Data Services.
+</p>
+
+<h3>Problems with Oracle Application Express Static Resources</h3>
+
+<p>A regression in APEX 5.0.3 and ORDS 3.0.3 prevents the proper functioning of APEX static resources and APEX based RESTful Services.
+Please upgrade to ORDS 3.0.4 to resolve this issue.</p>
+
+
+<h3>Using ORDS silent installation without specifying tablespaces</h3>
+ <p>
+ If you want to use the database default tablespaces (default and temporary tablespaces)
+ for ORDS_METADATA schema and ORDS_PUBLIC_USER user when installing ORDS from the
+ command line, you must install ORDS in silent (simple) mode and remove the following
+ tablespace entries in your /path/to/params/ords_params.properties file:
+ </p>
+
+<pre>
+schema.tablespace.default=SYSAUX
+schema.tablespace.temp=TEMP
+user.tablespace.default=USERS
+user.tablespace.temp=TEMP
+</pre>
+
+<p>To install ORDS in silent (simple) mode using the database default tablespaces:</p>
+<pre>
+java -jar ords.war
+java -jar ords.war install simple
+</pre>
+
+<h3>404 Errors when configuring Oracle REST Data Services</h3>
+<p>
+  There are two main causes of <code>404 - Not Found</code> errors:
+</p>
+<ul>
+  <li><p>Using <code>/ords</code> instead of <code>/ords/</code> (ORDS 3.0.0 only, fixed in 3.0.1 and later).</p>
+      <p>Oracle REST Data Services is deployed at a context-root of <code>/ords/</code>,
+         in previous versions there was logic to handle the case where a user accessed
+         <code>/ords</code> instead of <code>/ords/</code>. In ORDS 3.0.0 this functionality
+         was regressed, but it has been fixed in this release. If you access <code>/ords</code>
+         your browser will be redirected to <code>/ords/</code>.
+  </li>
+  <li><p>Not configuring the PL/SQL Gateway</p>
+      <p>If you want to to use Oracle Application Express <em>or</em> you wish
+         to access PL/SQL Stored Procedures, then you <em>must</em> enable
+         the PL/SQL Gateway during the installation process.
+      </p>
+      <p>A quick way to check if you have completed this step is to check in the
+        configuration folder if the file named: <code>conf/apex.xml</code> exists.
+        If it does not exist then it implies that the PL/SQL Gateway was not configured.
+      </p>
+      <p>If you do not use Application Express then
+         there will be no stored procedure available to serve the <code>/ords/</code> resource.
+         This means that accessing this URL will produce a <code>404 - Not Found</code> status,
+         this is expected.</p>
+       <p>Use the <code>misc.defaultPage</code> configuration setting to specify the name
+         of a PL/SQL procedure to serve the <code>/ords/</code> resource. This must be a PL/SQL
+        procedure that takes zero arguments, and uses <a href="http://docs.oracle.com/database/121/index.htm">Oracle Web Agent (OWA) APIs</a> to produce
+        a HTML response. This setting can be configured in SQL Developer under:</p>
+        <pre>View &gt; REST Data Services &gt; Administration</pre>
+        <p>and then when editing a configuration, under:</p>
+        <pre>REST Data Services &gt; Environment &gt; PL/SQL Gateway &gt; Default Web Page</pre>
+        <p> If you don't wish to use Oracle Application Express or PL/SQL procedures then
+          you do not need to configure the PL/SQL Gateway, however as explained above
+          accessing <code>/ords/</code> will always produce a <code>404 - Not Found</code> status, since there is nothing to serve this resource, this is expected.
+  </li>
+</ul>
+<h3>Standalone Mode Document Root</h3>
+<p>
+Standalone Mode can now serve aribtrary static resources via it's new
+document root feature. To see instructions on how to use the document root, use the help command:
+</p>
+<pre>
+  java -jar ords.war help standalone
+
+  java -jar ords.war standalone [--port] [--apex-images] [--context-path] [--static-context-path] [--doc-root] [--parameterFile]
+
+  Launch Oracle REST Data Services in standalone mode
+
+  Options:
+             [--port]              HTTP listen port, default 8080
+
+             [--apex-images]       Path to the folder containing
+                                   static resources required by
+                                   APEX
+
+             [--context-path]      The context path where Oracle
+                                   REST Data Services is
+                                   located, defaults to /apex
+
+             [--static-context-path]The Context path where
+                                   Application Express static
+                                   resources are located,
+                                   defaults to /i
+
+             <strong>[--doc-root]          Points to the location where
+                                   static resources, to be
+                                   served under the / root
+                                   server path are located.</strong>
+
+             [--parameterFile]     Specify the location of the
+                                   parameter file to use.
+                                   Defaults to
+                                   params/ords_params.properties.
+
+</pre>
+For example the following command would configure the document root to be <code>/var/www/html</code>:
+<pre>
+  java -jar ords.war standalone --doc-root /var/www/html
+  2015-06-16 22:33:19.899:INFO::main: Logging initialized @1253ms
+  Jun 16, 2015 10:33:20 PM oracle.dbtools.standalone.StandaloneJetty setupDocRoot
+  INFO: <strong>The document root is serving static resources located in: /var/www/html</strong>
+</pre>
+<p>The document root has the following features:</p>
+  <ul>
+    <li><p>Files named <code>index.html</code> or <code>index.htm</code> are treated
+      as <em>welcome</em> files, and are served in place of the folder resource
+      that contains them.</p>
+      <p>For example <code>/var/www/html/index.html</code> would serve as the
+        resource for <code>http://localhost:8080/</code>
+    </li>
+    <li><p>Files with a <code>.html</code> or <code>.htm</code> file extension
+      are served <em>without</em> without their file extension.</p>
+      <p>For example <code>/var/www/html/docs/readme.html</code> is served as:
+        <code>http://localhost:8080/docs/readme</code>. If a client accesses
+        <code>http://localhost:8080/docs/readme.html</code>, then the client will be redirected to <code>http://localhost:8080/docs/readme</code>.</p>
+     </li>
+  </ul>
+  <h2>Changes in 3.0.12</h2>
+
+  <h3>Issues Fixed in 3.0.12</h3>
+
+  <a id="3.0.12-changes"></a>
+    The following changes and enhancements have been made since 3.0.11:
+    <ul>
+      <li>BUG:26718269 - Address resource leak leading to ORA-01000: MAXIMUM OPEN CURSORS EXCEEDED when using APEX 4.2.x</li>
+    </ul>
+  <h3>New Features since 3.0.11</h3>
+    <p>None</p>
+    
+  <h2>Changes in 3.0.11</h2>
+
+  <h3>Issues Fixed in 3.0.11</h3>
+
+  <a id="3.0.11-changes"></a>
+    The following changes and enhancements have been made since 3.0.10:
+    <ul>
+      <li>BUG:26372648 - Address regression causing 500 Internal Server error in ORDS 3.0.10 on Apache Tomcat 8.5 and later</li>
+    </ul>
+  <h3>New Features since 3.0.10</h3>
+    <p>None</p>
+  <h2>Changes in 3.0.10</h2>
+
+  <h3>Issues Fixed in 3.0.10</h3>
+
+  <a id="3.0.10-changes"></a>
+    The following changes and enhancements have been made since 3.0.9:
+    <ul>
+      <li>BUG:26141329 - Remove Excel worksheet to Application Express Collection upload feature</li>
+      <li>BUG:25889314 - Improve performance of JSON serialization</li>
+      <li>BUG:25889943 - Uptake the latest Jetty release for Standalone Mode</li>
+      <li>BUG:25534690 - Fix regression that prevented disabling pagination at handler level in Application Express based REST Services</li>
+      <li>BUG:25477292 - Fix regression causing <code>Apex-Session</code> based First Party Authentication to fail</li>
+      <li>BUG:25712868 - Fix regression preventing POST operation on an AutoRest table which has a CLOB column</li>
+    </ul>
+  <h3>New Features since 3.0.9</h3>
+  <p>Customers can now automatically enable RPC of PL/SQL objects via POST REST endpoints. The PL/SQL API and SQL Developer GUI is similar to what already exists for AUTO REST enabling tables and views. Overloaded package procedures and functions are not supported and attempting to execute them via AUTO PLSQL feature will result in a 404.</p>
+  <h2>Changes in 3.0.9</h2>
+
+  <h3>Issues Fixed in 3.0.9</h3>
+
+  <a id="3.0.9-changes"></a>
+    The following changes and enhancements have been made since 3.0.8:
+    <ul>
+      <li>BUG:25214859 - Fix regression causing ORA-01000 due to cursor leak when downloading files via PL/SQL Gateway</li>
+      <li>BUG:25072243 - Fix regression preventing url mapping of ORDS enabled schemas iff the PL/SQL Gateway pool does not exist</li>
+      <li>BUG:22447307 - Add missing <code>ons.jar</code> to <code>ords.war</code></li>
+    </ul>
+  <h3>New Features since 3.0.8</h3>
+    <p>None.</p>
+
+  <h2>Changes in 3.0.8</h2>
+
+  <h3>Issues Fixed in 3.0.8</h3>
+
+  <a id="3.0.8-changes"></a>
+    The following changes and enhancements have been made since 3.0.7:
+    <ul>
+      <li>BUG:23640212 - Fix regression preventing the externally authenticated user identity being propagated to the database via the <code>REMOTE_USER</code> CGI header variable</li>
+    </ul>
+  <h3>New Features since 3.0.7</h3>
+    <p>None.</p>
+
+  <h2>Changes in 3.0.7</h2>
+
+  <h3>Issues Fixed in 3.0.7</h3>
+
+  <a id="3.0.7-changes"></a>
+    The following changes and enhancements have been made since 3.0.6:
+    <ul>
+      <li>BUG:24507612 - Fix regression preventing updating of an Application Express based OAuth Client Registration</li>
+      <li>BUG:24440967 - Address Connection resource leak that may occur under load.</li>
+      <li>BUG:24344949 - Show 503 Service unavailable status when database reports ORA-00018 Max Sessions Exceeded</li>
+      <li>BUG:24344949 - Retry request after jittered delay when database reports ORA-00018 Max Sessions Exceeded </li>
+      <li>BUG:23732108, BUG: 23732138 - Reduce overhead in dispatching all requests, improving performance.</li>
+    </ul>
+    The following changes and enhancements have been made to the Simple Oracle Document Access (SODA) functionality:
+    <ul>
+      <li>BUG:24450332 - Proper handling of 500 and 503 errors from ORDS. Now SODA JSON responses are returned, instead of ORDS responses.</li>
+      <li>BUG:24308373 - Support versioning in SODA URIs (version "v1" is supported, and is the only supported version at this time).</li>
+    </ul>
+  <h3>New Features since 3.0.6</h3>
+    <ul>
+     <li>ENH:24347162 - When PL/SQL Gateway uses <code>APEX_PUBLIC_USER</code> automatically add <code>WWV_FLOW_EPG_INCLUDE_MODULES.AUTHORIZE</code> to the <code>security.requestValidationFunction</code> setting</li>
+    </ul>
+
+  <h2>Changes in 3.0.6</h2>
+
+  <h3>Issues Fixed in 3.0.6</h3>
+
+  <a id="3.0.6-changes"></a>
+    The following changes and enhancements have been made since 3.0.5:
+    <ul>
+      <li>BUG:23638987 - Fix regression causing APEX Based RESTful Services to fail if and only if the <code>ORDS_PUBLIC_USER</code> (<code>???_pu.xml</code>) connection pool is removed.</li>
+      <li>BUG:23625255 - Fix regression causing performance degradation due to unnecessary validation of database pools</li>
+      <li>BUG:23504343 - Fix the localization of the install help command</li>
+      <li>BUG:23347319 - Fix regression causing IllegalStateExecption when context path accessed without trailing slash</li>
+      <li>BUG:23291056 - Enable support for TLS 1.2 with JDBC connections, by upgrading to use the most recently available Oracle JDBC drivers for JDK 7</li>
+      <li>BUG:23314519 - Fix regression causing corruption of values in OWA CGI environment</li>
+    </ul>
+    The following change and enhancements have been made to the Simple Oracle Document Access (SODA) functionality:
+    <ul>
+      <li>BUG:23563847 - New default indexing mode: requires scalars, missing values allowed.</li>
+      <li>BUG:23500034 - Includes the following fixes:
+       <ul>
+        <li>New indexing modes: "scalarRequired", "lax".</li>
+        <li>Result limit applies to QBE queries as well as basics gets.</li>
+        <li>Order-bys and indexes no longer implicitly append [0] steps.</li>
+        <li>Rest error messages no longer hard-code "type" attribute to 400 code definition (correct definition now used).</li>
+       </ul>
+      </li>
+      <li>BUG:23316761 - RestResponse needs to guard against null exception check.</li>
+      <li>BUG:23500034 - Includes the following fixes:
+       <ul>
+        <li>Fixes URI patterns issue for cloud.</li>
+        <li>Adds correct exception handling for future releases, in the case of deleting collection with uncommitted writes.</li>
+        <li>Fixes commit/rollback issues in SODA REST handler.</li>
+        <li>If-match headers (optimistic locking).</li>
+       </ul>
+      </li>
+    </ul>
+  <h3>New Features since 3.0.5</h3>
+  <p>None</p>
+
+<h2>Changes in 3.0.5</h2>
+
+<h3>Issues Fixed in 3.0.5</h3>
+
+<a id="3.0.5-changes"></a>
+  The following changes and enhancements have been made since 3.0.4:
+  <ul>
+    <li>BUG:23146410 - Decrease per request overhead and improve database resource management</li>
+    <li>BUG:23084465 - Fix regression in handling of Integer OUT parameters</li>
+    <li>BUG:23081945 - Include <code>Content-Length</code> header when <code>wpg_docload.download_file</code> is used</li>
+    <li>BUG:23071135 - Fix problem with user defined RESTful Services conflicting with built in REST Services</li>
+    <li>BUG:23034547 - Fix problem with serving of HTML resources in Standalone Mode document root</li>
+    <li>BUG:23019615 - Fix Too Many Redirects problem when accessing <code>ui/oauth2/clients/</code> over HTTPS</li>
+    <li>BUG:22983910 - Fix problem with ORDS reporting incorrect information to SQL Developer for RESTful Services Parameters marked as <code>OUT</code></li>
+    <li>BUG:22909624 - Fix problem with processing of <code>Content-Disposition</code> <code>filename</code> attribute/li>
+    <li>BUG:22909596 - Change behaviour to only produce <code>filename*</code> attribute if a value is not provided for it  in a <code>Content-Disposition</code> response header</li>
+    <li>BUG:22891124 - Fix regression preventing the correct matching and dispatching of Route Patterns with the Optional Modifier</li>
+    <li>BUG:22851160 - Fix problem preventing execution of <code>ords.enable_schema</code> from Application Express SQL Workshop</li>
+    <li>BUG:22809620 - Fix problem with handling of a Resource Module with an empty base path</li>
+    <li>BUG:22763362 - Support use of <code>owa_util.status_line</code> in ORDS based PL/SQL REST Handlers</li>
+    <li>BUG:22665055 - Unable to run ORDS on non Oracle JDKs</li>
+  </ul>
+  <h3>New Features in 3.0.5</h3>
+  <h4>Standalone Mode HTTPS Support</h4>
+  <p>Standalone Mode now supports HTTPS either by generating a self signed certificate or using a provided certificate. HTTPS can be configured using the installer when ORDS starts in standalone mode.
+  </p>
+<ul>
+<li>The default self signed certificate is valid for 365 days and will be regenerated if expired the next time ORDS is started.</li>
+<li>If using an existing certificate, a DER encoded private key is required.</li>
+<li>It is recommended to use Java 8 in order for Jetty to use the most recent cipher suites to establish secure connections.</li>
+<li><strong>Note:</strong> <em>Self signed certificates will not be trusted by most clients including web browsers and Oracle SQL Developer, you will need to perform additional configuration on client applications to configure them to accept the self signed certificate.</em></li>
+</ul>
+
+  <h4>Installer support for Bequeath Connection</h4>
+  <p>Oracle REST Data Services installer supports Bequeath connection for install, upgrade, validate and uninstall.
+  Refer to Oracle REST Data Services documentation for details on using the bequeath connection.
+  </p>
+
+<h2>Changes in 3.0.4</h2>
+
+<h3>Issues Fixed in 3.0.4</h3>
+
+<a id="3.0.4-changes"></a>
+  The following changes and enhancements have been made since 3.0.3:
+  <ul>
+    <li>BUG:22605437 - Fix issues causing ORA-01000 Maximum Open Cursors Exceeded error messsage</li>
+    <li>BUG:22525939 - Fix issues causing APEX static resources to give 404 Not Found errors</li>
+    <li>BUG:21890324 - Fix problem with conditional DELETE of NoSQL table resources</li>
+    <li>BUG:22550686 - Fix problem preventing install into PDB in Oracle Database 12.1.0.1</li>
+    <li>BUG:22342053 - Fix issue with the dispatching of Resource Modules with empty base path</li>
+  </ul>
+  <h3>New Features in 3.0.4</h3>
+  <p>None</p>
+<h2>Changes in 3.0.3</h2>
+
+<h3>Issues Fixed in 3.0.3</h3>
+
+<a id="3.0.3-changes"></a>
+  The following changes and enhancements have been made since 3.0.2:
+  <ul>
+    <li>BUG:22336058 - Fix issue by providing option to use the database default tablespaces (default and temporary tablespaces) when installing ORDS</li>
+    <li>BUG:22307714 - Fix regression preventing OAuth 2.0 end user approvals working</li>
+    <li>BUG:22165161 - Ensure ETag is included in response when generating a 304 status</li>
+    <li>BUG:22279980 - Fix regression causing 405 Method Not Allowed when registering OAuth client in ORDS enabled schema</li>
+    <li>BUG:21312132 - Fix problem with ORA-00001 error raised when a table is rest enabled more than once</li>
+    <li>BUG:22179327 - Fix regression introduced in 3.0.2 that required ORDS to be installed before APEX for RESTful services to function</li>
+    <li>BUG:22179327 - Fix problem with removing NoSQL Store configuration using SQL Developer</li>
+    <li>BUG:22129159 - For PL/SQL Gateway calls, use the application supplied status code when performing a redirect</li>
+    <li>BUG:22173839 - Fix problem causing ETag value to be calculated incorrectly when origins allowed specified for a resource module</li>
+    <li>BUG:22157870 - Fix regression causing APEX plugin static resources to give 404 status when using a url-mapping.xml URL mapping rule</li>
+    <li>BUG:22100841 - Fix for issue preventing serving of resources with numeric values in the content type, for example <code>video/mp4</code></li>
+  </ul>
+  <h3>New Features in 3.0.3</h3>
+  <ul>
+    <li>BUG:22336058 - Provide option to use the database default tablespaces (default and temporary tablespaces) when installing ORDS</li>
+    <li>BUG:22312795 - Support simultaneous dispatching of RESTful Services defined in APEX metadata and ORDS metadata for schemas that are APEX workspaces and also ORDS enabled</li>
+  </ul>
+<h2>Changes in 3.0.2</h2>
+
+<h3>Issues Fixed in 3.0.2</h3>
+
+<a id="3.0.2-changes"></a>
+  The following changes and enhancements have been made since 3.0.1:
+  <ul>
+    <li>BUG:21875754 - Fix regression in the handling of nested cursors when rendering JSON responses</li>
+    <li>BUG:21841485 - Fix regression in the handling of paginated resources in APEX RESTful Services when accessed via CORS request</li>
+    <li>BUG:21833987 - Fix regression causing shorted OAuth access token lifetimes due to non UTC timezones</li>
+    <li>BUG:21487014 - Fix regression where a null base path value in a Resource Module made the schema inaccessible via REST</li>
+    <li>BUG:21448390 - Fix regression where multiple database mappings configured via <code>url-mapping.xml</code> failed to work correctly</li>
+    <li>BUG:21429494 - Fix handling of cursor expressions causing invalid JSON</li>
+    <li>BUG:21365668 - Fix problem with certain passwords causing <code>ORA-06550 PLS-00103</code> during install</li>
+    <li>BUG:21155926 - Fix regression causing PL/SQL Gateway to process flexible URL parameters incorrectly</li>
+    <li>BUG:17255991 - Fix problem with large OWA responses terminating at 60MB in size</li>
+  </ul>
+  <h3>New Features in 3.0.2</h3>
+  <ul>
+    <li>BUG:21646804 - Add support for a version command to command line: <code>java -jar ords.war version</code></li>
+    <li>BUG:20538961 - Add PL/SQL API for creating and editing RESTful Services. The ORDS package has numerous additional
+    published APIs and documentation for same.</li>
+  </ul>
+
+<h2>Changes in 3.0.1</h2>
+
+<h3>Issues Fixed in 3.0.1</h3>
+
+<a id="3.0.1-changes"></a>
+The following changes and enhancements have been made since 3.0.0:
+<ul>
+  <li>BUG:21230076 - Accessing <code>/ords</code> instead of <code>/ords/</code> produces a 404 Not Found error on Weblogic, GlassFish and Tomcat</li>
+  <li>BUG:21230822 - Accessing an Application Express RESTful service protected by a privilege produces a 500 - Internal Server Error</li>
+  <li>BUG:21230822 - Accessing an Application Express RESTful service protected by a privilege produces a 500 - Internal Server Error</li>
+  <li>BUG:21194216 - RESTful Query Filters do not handle certain column names</li>
+  <li>BUG:21170353 - Mapping of Application Express workspaces does not work properly with Pluggable Database (PDB) based URL Mapping</li>
+  <li>BUG:21169232 - Various problems with manual URL mapping, including a problem with the <code>url-mapping.xml</code> file being stored in the wrong folder</li>
+  <li>BUG:21157228 - Problem with specifying workspace id when creating manual URL mapping</li>
+  <li>BUG:21148830 - Unable to define parameters for Resource Handlers in SQL Developer</li>
+  <li>BUG:21148830 - Unable to define parameters for Resource Handlers in SQL Developer</li>
+  <li>BUG:21136646 - Report 400 - Bad Request when integrity constraint violated on AutoRest update operations</li>
+  <li>BUG:21129378 - AutoRest Batch CSV Loading not working</li>
+  <li>BUG:21121349 - AutoRest POST should handle insert with no generated key</li>
+  <li>BUG:21088925 - Error when dropping REST enablement from schema</li>
+  <li>BUG:21083867 - PL/SQL Gateway reporting port number -1 for HTTP on port 80</li>
+  <li>BUG:21053432 - Support creating static resources war file with custom context path</li>
+  <li>BUG:21024231 - Case of query parameters not being preserved when calling PL/SQL procedures</li>
+  <li>BUG:21024175 - Array ordering being shuffled when calling PL/SQL procedures</li>
+</ul>
+<h3>New Features in 3.0.1</h3>
+<ul>
+  <li>BUG:20586521 - Add support for a document root to standalone mode.</li>
+  <li>BUG:20539027 - Support installing Oracle REST Data Services into a Oracle Database 12c Container Database (CDB).</li>
+</ul>
+<a id="ea2-changes"></a><h2>Changes in 3.0.0</h2>
+The following changes and enhancements have been made since EA1:
+<h3>Issues Fixed in 3.0.0</h3>
+<ul>
+  <li>BUG:20221841 - Handle escaped slash characters in JSON values correctly</li>
+  <li>BUG:20197577 - Ensure transaction for original resource handler is committed before forwarding request to GET handler</li>
+  <li>BUG:20536145 - Address regression in 3.0.0 EA1 that prevented tabular forms in APEX working correctly</li>
+  <li>BUG:20568202 - Ensure <code>@ApplicationScoped</code> services are not started when command line is active</li>
+  <li>BUG:20601219 - Enable PL/SQL Gateway support for <code>HEAD</code> operation</li>
+</ul>
+<h3>New Features in 3.0.0</h3>
+<ul>
+  <li><em>PL/SQL API for creating RESTful Services</em> - This release previews the PL/SQL API for creating and editing restful services using PL/SQL, enabling the creation and mainteance of
+    RESTful services to be scripted via PL/SQL. The API also exposes all the OAuth 2.0 functionality, enabling OAuth Clients to be registered and managed. Note that this API is subject to change before the final release of 3.0.0.</li>
+  <li><em>OAuth 2.0 Client Credentials Grant Support</em> - The <a href="https://tools.ietf.org/html/rfc6749#section-4.4">OAuth 2.0 Client Credentials Grant</a> type is now supported, enabling server to server
+    authorization via OAuth 2.0, which is an important use case for enterprise applications.</li>
+  <li><em>RESTful Privileges can be mapped to URL patterns</em> - RESTful Privileges can now be associated with arbitrary URL patterns, enabling RESTful Privileges to protect any database resource accessed
+      via ORDS including SODA resources and AutoRest resources. Privilege to URL mappings can be configured using the PL/SQL API or using SQL Developer.</li>
+  <li>The above two features mean that SODA resources and AutoRest resources can now be protected by OAuth 2.0</li>
+  <li><em>Improved NoSQL Database Support</em> - The <code>/store</code> prefix on NoSQL Database resources has been eliminated, support has been added for the new DDL capability introduced
+    in NoSQL Database 3.2.5, enabling DDL statements to be issued via a RESTful Endpoint.</li>
+  <li><em>Installer Improvements</em> - The installer has improved support for migrating RESTful Service definitions stored in APEX Workspaces to ORDS enabled schemas. The installer now has
+  an <code>uninstall</code> command, see <code>java -jar ords.war help uninstall</code> for more information.</li>
+  <li><em>RESTful Services Query Filtering Support</em> - RESTful Services (that perform SQL queries) now support the specification of a JSON based filtering clause to further constrain the query. The
+    filter clause can either be specified by including it as a parameter of the service's query string, or by submitting a <code>POST</code> request with the filter clause as the body of the
+    <code>POST</code> request.</li>
+  <li><em>Java API for ORDS Plugins</em> - This release previews a Java API that enables third parties to contribute extensions to the ORDS runtime. The documentation for the API is located <a href="docs/javadoc/plugin-api/">here</a>.
+      A tutorial demonstrating how to compile and add a plugin to ORDS is located <a href="examples/plugins/plugin-demo/">here</a>. Note that this API is subject to change before the final release of ORDS 3.0.0</li>
+</ul>
+<a id="new-features"></a><h2>New Features since 2.0.10</h2>
+<p>Oracle REST Data Services includes the following new functionality:</p>
+<h3>Installer</h3>
+<p>Oracle REST Data Services 2.0.x required Oracle Application Express 4.2 or later to be installed in order to define and use RESTful Services. In Oracle REST Data Services 3.0.x Oracle Application
+Express is not required. Instead Oracle REST Data Services is able to install it's own schema on the first run of Oracle REST Data Services. The installation process is simple and fast.
+</p>
+<h3>Simple Oracle Document Access (SODA) for REST</h3>
+<p>
+JSON documents can now be stored in and retrieved from document collections managed by Oracle Database. SODA for REST provides an interface to the Oracle Database Document Store for NoSQL style application development.
+</p>
+<h3>Auto Generated REST Endpoints for Tables and Views</h3>
+<p>Using Oracle SQL Developer 4.1 and later you can expose database tables and views as REST API endpoints, enabling data stored in the tables or views to be created, queried, updated and deleted
+using REST.</p>
+<h3>Oracle NoSQL Database Support</h3>
+<p>This release adds support for exposing Oracle NoSQL Database tables as REST API endpoints. The data stored in the tables can be created, queried, updated and deleted using REST.</p>
+
+<a id="changed"></a><h2>Changed Behaviour since 2.0.10</h2>
+<p>The behvaiour of the following existing features has been enhanced:</p>
+<h3>RESTFul Services</h3>
+<h4>RESTful Service Metadata</h4>
+<p>Oracle REST Data Services now stores it's metadata about RESTful Services in it's
+own schema (named: <code>ORDS_METADATA</code>). This means it is no longer
+required to install Oracle Application Express in order to define
+ RESTful Services.</p>
+ <p>Since Application Express is not used to define the metadata this means that
+ these RESTful Services cannot be edited by Application Express, instead you must
+ use Oracle SQL Developer 4.1 or later to edit the RESTful Services.</p>
+ <p>Note that existing RESTful Services defined in Application Express continue
+ to be fully supported, see more about this in the <a href="#apex">Application Express section</a> below.
+ </p>
+ <p>Any database schema can be enabled to define RESTful Services, before a schema can define RESTful Services, it must enabled for use with Oracle REST Data Services. This
+ can be done using SQL Developer 4.1 or in SQLPlus by invoking the <code>ords.enable_schema</code> stored procedure:</p>
+
+ <pre>
+SQL> connect scott
+Enter password:
+Connected.
+SQL> exec ords.enable_schema;
+
+PL/SQL procedure successfully completed.
+
+SQL> commit;
+
+Commit complete.
+
+SQL>
+</pre>
+<h4>Oracle REST API Standardization</h4>
+<h5>New Source Types</h5>
+<p>Oracle is converging and unifying APIs and document formats across all products that support REST. To support this two new Source Types have been added for Resource Handlers:</p>
+<ul>
+ <li>'JSON Collection' produces a JSON document showing the results of a query in the standardized Oracle JSON format. This source type replaces the 'JSON Query' and 'JSON Query Feed' source types.</li>
+ <li>'JSON Item' produces a JSON document showing a single result in a query in the standardized Oracle JSON format. This source type replaces the 'Query (with one result only)' source type.</li>
+</ul>
+<p>'JSON Collection' is the default source type. Note that 'Query', 'JSON Query Feed', and 'Query (with one result only)' continue to be supported, but deprecated and customers are encouraged to switch to using the source types instead.</p>
+<h5>Pagination</h5>
+<p>The standardization effort also affects how pagination is performed, previously resources were paginated using the <code>?page=<em>N</em></code> query parameter. This syntax
+conintues to be supported for existing source types, but the new 'JSON Collection' source type uses the standardized <code>?offset=<em>O</em>&limit=<em>L</em></code> query parameters. This syntax
+gives clients more flexibility about indicating the size of pages they can handle.
+</p>
+<h4>Security</h4>
+<h5>First Party Authentication</h5>
+<p>This release introduces support for cookie based first party authentication of RESTful Services. This feature enables web applications deployed on the same web server (origin)
+as the the RESTful Services to authenticate with the the RESTful Services using a cookie instead of OAuth 2.0 access tokens.</p>
+<p>This makes it much easier for first party applications to consume RESTful Services. This feature is supported in ORDS enabled schemas
+and NoSQL data stores.</p>
+<h5>User Repositories</h5>
+<p>Oracle REST Data Services can authenticate against any user repository configured in the host application server. In the previous release users were typically defined in the Application Express user repository, in this release users are typically defined in the application server user respository.</p>
+<h3>Standalone Mode</h3>
+<p>Standalone now uses <a href="http://eclipse.org/jetty/" target="_blank">Jetty</a> to provide the JEE runtime environment required by Oracle REST Data Services. Jetty is well proven, mature and being continuously improved.</p>
+<h3>Oracle Application Express</h3>
+<p>
+Oracle REST Data Services continues to support RESTful Services defined in Oracle Application Express. The 'JSON Collection' and 'JSON Item' source types are not supported in RESTful Services
+defined in Oracle Application Express.
+</p>
+<p>Oracle SQL Developer can be used to edit RESTful Services defined in Application Express or Oracle REST Data Services. A database schema that is associated with an Application Express workspace
+can be enabled for Oracle REST Data Services 3.0.x RESTful Services, but doing so will mean only the RESTful Services defined in the ORDS_METADATA schema will be editable
+via Oracle SQL Developer.</p>
+
+<a id="known-issues"></a><h2>Known Issues</h2>
+<h3>JDK Support</h3>
+<ul>
+  <li>ORDS does not run in Standalone Mode on Oracle JDK 9. Support for JDK 9 will be added in a future release.</li>
+</ul>
+<h3>SODA</h3>
+<ul>
+  <li>None</li>
+</ul>
+<h3>Application Express RESTful Service Migrations</h3>
+<ul>
+  <li>
+    BUG:21302877 - Cannot migrate RESTful Services from APEX 5, migration process not coping with database not containing any APEX version.
+  </li>
+</ul>
+<h3>Autogenerated REST Endpoints</h3>
+<ul>
+ <li>AutoRest resources support the OAuth 2.0 Client Credentials flow only.</li>
+</ul>
+
+<h3>RESTful Services</h3>
+<ul>
+ <li>Application Express workspaces do not support first party authentication, and therefore do not support the
+   <code>/sign-in/</code> interactive sign in form. Accessing <code>/sign-in/</code> in APEX workspaces will produce a 404 status.</li>
+</ul>
+<h3>NoSQL</h3>
+<ul>
+ <li>It is not currently possible to access secured NoSQL REST Endpoints with OAuth 2.0, only first party cookie authentication is supported.</li>
+</ul>
+</div>
+</body>
+</html>

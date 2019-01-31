@@ -1,0 +1,668 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+body {
+  font-family: 'Helvetica Neue', 'Neue Helvetica', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  white-space: pre-wrap; 
+  white-space: -moz-pre-wrap;
+  word-wrap: break-word;
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+<title>Security Guide</title>
+</head>
+<body>
+
+<h1>Introduction</h1><p>This document describes how to configure secure access to RESTful Services</p><p><strong>Editor's Note:</strong> <strong>This draft of the document serves the following purposes</strong>:</p>
+<ul>
+  <li>First draft of security guide documentation</li>
+  <li>Design document describing the API of the security features</li>
+</ul><p>It may be subject to change as the API is implemented. Some responses are not fully defined yet, but the required information is described in the bullet points explaining the structure of each response. The missing content will be added in the next revision.</p><h2>Overview</h2><p>RESTful APIs consist of Resources, each Resource having a unique URI. A set of Resources can be protected by a Privilege. A Privilege defines the set of Roles, at least one of which an authenticated user MUST possess to access a Resource protected by a Privilege.</p><p>Configuring a resource to be protected by a particular Privilege requires creating a Privilege Mapping. A Privilege Mapping defines a set of patterns that identifies the Resources that a Privilege protects</p><h3>Authentication</h3><p>Users can be authenticated using the following mechanisms:</p>
+<ul>
+  <li>First Party Cookie based Authentication</li>
+  <li>Third Party OAuth 2.0 based Authentication</li>
+</ul><h4>First Party Authentication</h4><p>A First Party is the author of a RESTful API. A First Party Application is a Web Application deployed on the same <a href="https://tools.ietf.org/html/rfc6454">Web Origin</a>, as the RESTful API. A First Party Application is able to authenticate and authorise itself to the RESTful API using the same cookie session that the Web Application is using. The first party application has full access to the RESTful API.</p><h4>Third Party Authentication</h4><p>A Third Party is any party other than the author of a RESTful API. A third party application cannot be trusted in the same way as a first party application, therefore there must be a mediated means to selectively grant the third party application limited access to the RESTful API.</p><p>The <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0 protocol</a> defines a number of flows to provide conditional and limited access to a RESTful API. In short, the third party application must first be registered with the first party, and then the first party (or an end-user of the first party RESTful service) approves the third party application for limited access to the RESTful API, by issuing the third party application with a short lived access token.</p><h5>Two-legged and Three-legged OAuth</h5><p>Some flows in OAuth are defined as 'two-legged' and others as 'three-legged'. </p><p>'Two-legged' OAuth involves two parties, the party calling the RESTful API (the third party application), and the party providing the RESTful API. Two legged flows are used in server to server interactions where an end-user does not need to approve access to the RESTful API. In OAuth 2.0 this flow is called <a href="https://tools.ietf.org/html/rfc6749#section-4.4">the client credentials flow</a>. It is most typically used in business to business scenarios.</p><p>'Three-legged' OAuth involves three parties, the party calling the RESTful API, the party providing the RESTful API, and an end-user party, who owns/manages the data that the RESTful API provides access to. Three legged flows are used in client to server interactions where an end-user must approve access to the RESTful API. In OAuth 2.0 the <a href="https://tools.ietf.org/html/rfc6749">authorization code flow</a> and the <a href="https://tools.ietf.org/html/rfc6749">implicit flow</a> are three legged flows. These flows are typically used in business to consumer scenarios.</p><p>When an OAuth client is registering with a RESTful API it can safely indicate which resources protected by three-legged flows it requires access to, the end-user has the final approval decision about whether to grant the client access.</p><p>However for resources protected by two-legged flows, the owner of the RESTful API must approve which resources each client is authorized to access. </p><h3>About Privileges</h3><p>A Privilege consists of the following data:</p>
+<ul>
+  <li>Name: This is the unique identifier for the Privilege. This value is required.</li>
+  <li>Label: This is the name of the Privilege presented to an end user, when a user is being asked to approve access to a Privilege when using OAuth. This value is required if the Privilege is used with a three legged OAuth flow.</li>
+  <li>Description: This is a description of the purpose of the privilege. It is also presented to the end user when a user is being asked to approve access to a privilege. This value is required if the Privilege is used with a three legged OAuth flow.</li>
+  <li>Roles: This is a set of role names, that are required to access the privilege. An authenticated party must have at least one of the specified roles, if they are to be authorised to access resources protected by the privilege. This value is required. It may be an empty set which indicates that a user MUST be authenticated, but does not require any specific role to access the Privilege.</li>
+</ul><p>For Two-legged OAuth the third party application (called a client in OAuth terminology) must possess at least one of the required roles.</p><p>For Three-legged OAuth the end user that approves the access request from the third party application must possess at least one of the required roles.</p><h3>About Users &amp; Roles</h3><p>A Privilege enumerates a set of Roles, but where are these Roles defined? What about the users that possess these roles? Where are they defined?</p><p>ORDS delegates the task of user management to the Application Server on which ORDS is deployed. ORDS is able to authenticate users defined/managed by the Application Server and to identify the roles/groups the authenticated user belongs to. It is the responsibility of the party deploying ORDS on an Application Server to also configure the user repository on the Application Server. </p><p>Due to the large variety of ways by which an Application Server can be configured to define a user repository or integrate with an existing user repository, it is outside the scope of this document to describe how to configure a user repository in an Application Server.</p><p>Please consult your Application Server documentation for information on this topic.</p><h4>About the file based user repository</h4><p>To aid demonstrating and understanding the security features of ORDS, ORDS does include a simple file based user repository mechanism. This user repository is only intended for the purposes of demonstration and testing, and is not supported for production use.</p><p>Please consult the command line <code>user</code> command for more information on how to create a user in this repository.</p><p><code>java -jar ords.war help user</code></p>
+<pre><code>java -jar ords.war user &lt;user&gt; &lt;roles&gt;
+
+Arguments:
+           &lt;user&gt;   The userid of the user
+
+           &lt;roles&gt;* The zero or more roles the user has
+</code></pre><h1>Tutorial</h1><p>This tutorial demonstrates creating a privilege to protect a set of resources, and accessing the protected resource with the following OAuth flows:</p>
+<ul>
+  <li>Client Credentials</li>
+  <li>Authorization Code</li>
+  <li>Implicit</li>
+</ul><p>We also demonstrate access the resource using First Party cookie based authentication. </p><h2>When to use each flow</h2><p>Use <em>First Party Cookie Authentication</em> when accessing a RESTful API from a web application hosted on the same origin as the RESTful API.</p><p>Use the <em>Authorization Code</em> flow when you need to permit third party web applications to access a RESTful API and the third party application has it's own web server where it can keep it's client credentials secure. This is the typical situation for most web-applications, and so this flow should be the most preferred option, providing the most security and best user experience as the third party application can use refresh tokens to extend the life of a user session without having to prompt the user to reauthorize the application.</p><p>Use the <em>Implicit</em> flow when the third party application does not have a web server where it can keep it's credentials secure. This flow is useful for third party single page based applications. Since refresh tokens cannot be issued in the Implicit flow, the user will be prompted more frequently to authorise the application.</p><p>Native mobile or desktop applications should use the <em>Authorization Code</em> or <em>Implicit</em> flows. They will need to display the sign in and Authorization prompts in a web browser view, and capture the access token from the web browser view at the end of the Authorization process.</p><p>Use the <em>Client Credentials</em> flow when you need to give a third party application direct access to a RESTful API without requiring a user to approve access to the data managed by the RESTful API. The third party application must be a server based application that can keep it's credentials secret. The Client Credentials flow <strong>must not</strong> be used with a native application, as the client credentials can <strong>always</strong> be discovered in the native executable.</p><h2>Assumptions</h2><p>For the ease of demonstration this example makes the following assumptions</p>
+<ul>
+  <li>ORDS is deployed at the following URL: <code>https://example.com/ords/</code></li>
+  <li>A database schema named <code>RESTEASY</code> has been enabled for use with ORDS  and it's RESTful APIs are exposed under: <code>https://example.com/ords/resteasy/</code></li>
+  <li>The resources to be protected are located under: <code>https://example.com/ords/resteasy/examples/employees/</code></li>
+</ul><h2>Create Resource</h2><p>Execute the following PL/SQL commands, while connected as schema <code>RESTEASY</code></p>
+<pre><code>begin
+ords.create_service(
+      p_module_name =&gt; &#39;examples.employees&#39; ,
+      p_base_path  =&gt; &#39;/examples/employees/&#39;,
+      p_pattern =&gt;  &#39;.&#39; ,
+      p_items_per_page =&gt; 7,
+      p_source  =&gt;  &#39;select * from emp order by empno desc&#39;);
+commit;
+end;
+</code></pre><p>This command creates the example <code>/examples/employees/</code> resource which we will protect with a Privilege in the following steps.</p><p>Note that this assumes the <code>RESTEASY</code> schema contains a database table named <code>EMP</code>. Below is the DDL for the <code>EMP</code> table:</p>
+<pre><code>create table emp (
+  empno    number(4,0), 
+  ename    varchar2(10 byte), 
+  job      varchar2(9 byte), 
+  mgr      number(4,0), 
+  hiredate date, 
+  sal      number(7,2), 
+  comm     number(7,2), 
+  deptno   number(2,0), 
+  constraint pk_emp primary key (empno)
+  );
+</code></pre><h3>Verify Resource</h3><p>Execute the following <a href="http://curl.haxx.se">cURL</a> command:</p>
+<pre><code>curl -i https://example.com/ords/resteasy/examples/employees/
+</code></pre><p>The following results should be shown (_content formatted and some results elided for clarity_):</p>
+<pre><code><br/>Content-Type: application/json
+Transfer-Encoding: chunked
+
+{
+ &quot;items&quot;:
+   [
+    {&quot;empno&quot;:7934,&quot;ename&quot;:&quot;MILLER&quot;,&quot;job&quot;:&quot;CLERK&quot;,&quot;mgr&quot;:7782,&quot;hiredate&quot;:&quot;1982-01-23T00:00:00Z&quot;,&quot;sal&quot;:1300,&quot;comm&quot;:null,&quot;deptno&quot;:10},
+    ...
+   ],
+ &quot;hasMore&quot;:true,
+ &quot;limit&quot;:7,
+ &quot;offset&quot;:0,
+ &quot;count&quot;:7,
+ &quot;links&quot;:
+   [
+    {&quot;rel&quot;:&quot;self&quot;,&quot;href&quot;:&quot;https://example.com/ords/resteasy/examples/employees/&quot;},
+    {&quot;rel&quot;:&quot;describedby&quot;,&quot;href&quot;:&quot;https://example.com/ords/resteasy/metadata-catalog/examples/employees/&quot;},
+    {&quot;rel&quot;:&quot;first&quot;,&quot;href&quot;:&quot;https://example.com/ords/resteasy/examples/employees/&quot;},
+    {&quot;rel&quot;:&quot;next&quot;,&quot;href&quot;:&quot;https://example.com/ords/resteasy/examples/employees/?offset=7&quot;}
+   ]
+}
+</code></pre><p>Now the example resource exists, but it is available to any user, without any access control. To secure access to the resource we need to create a Privilege and associate it with the <code>/examples/employees/</code> resource.</p><h2>Create Privilege</h2><p>Execute the following PL/SQL commands, while connected as schema <code>RESTEASY</code></p>
+<pre><code>begin
+  ords.create_role(&#39;HR Administrator&#39;);     
+ 
+  ords.create_privilege(
+      p_name =&gt; &#39;example.employees&#39;,
+      p_role_name =&gt; &#39;HR Administrator&#39;,
+      p_label =&gt; &#39;Employee Data&#39;,
+      p_description =&gt; &#39;Provide access to employee HR data&#39;);
+  commit;
+end;
+</code></pre><p>This command creates a Role and a Privilege (belonging to the <code>RESTEASY</code> schema).</p>
+<ul>
+  <li>The Role name must be unique and must contain printable characters only.</li>
+  <li>The Privilege name must be unique and must conform to the syntax specified by the OAuth 2.0 specification,  section 3.3 for <a href="https://tools.ietf.org/rfc6749#section-3.3">scope names</a>.</li>
+  <li>Since we wish to demonstrate using this Privilege with the three-legged Authorization Code  and Implicit flows, we must provide a label and a description for the privilege.  The label and description are presented to the end user during the approval phase of three-legged flows.</li>
+</ul><p>The values should be plain text that identify the name and purpose of the privilege.</p><h3>Verify Privilege</h3><p>Ensure the Privilege was created correctly by querying the <code>USER_ORDS_PRIVILEGES</code> view.</p><p>Execute the following SQL, while connected as schema <code>RESTEASY</code></p>
+<pre><code>select id,name from user_ords_privileges where name = &#39;example.employees&#39;;
+</code></pre><p>The following results should be shown:</p>
+<pre><code>ID    NAME                                                                                                                                                                                                                                                           
+----- -----------------
+10260 example.employees                                                                                                                                                                                                                                               
+</code></pre>
+<ul>
+  <li>The <code>ID</code> value will vary from database to database, but the <code>NAME</code> value should be as shown above.</li>
+</ul><p>Now the Privilege exists, but it does not yet protect any resources, to do that we must configure a privilege mapping</p><h2>Associate Privilege with Resources</h2><p>Execute the following PL/SQL commands, while connected as schema <code>RESTEASY</code>:</p>
+<pre><code>begin
+ ords.create_privilege_mapping(
+      p_privilege_name =&gt; &#39;example.employees&#39;,
+      p_pattern =&gt; &#39;/examples/employees/*&#39;);     
+  commit;
+end;
+
+</code></pre><h3>Verify Mapping</h3><p>Ensure the Privilege Mapping was created correctly by querying the <code>USER_ORDS_PRIVILEGES</code> view.</p><p>Execute the following SQL, while connected as schema <code>RESTEASY</code></p>
+<pre><code>select id, name, pattern from user_ords_privilege_mappings;
+</code></pre><p>Output similar to the following should be shown:</p>
+<pre><code>PRIVILEGE_ID NAME                 PATTERN          
+------------ -------------------- ---------------------
+10260        example.employees    /examples/employees/*
+
+</code></pre>
+<ul>
+  <li>The <code>ID</code> value will vary from database to database, but the <code>NAME</code> and <code>PATTERN</code> values should be as shown above.</li>
+</ul><h3>Verify Access Control</h3><p>Execute the following <a href="http://curl.haxx.se">cURL</a> command:</p>
+<pre><code>curl -i https://example.com/ords/resteasy/examples/employees/
+</code></pre><p>The following results should be shown (_body of the HTML response elided for clarity_):</p>
+<pre><code>HTTP/1.1 401 Unauthorized
+Content-Type: text/html
+Transfer-Encoding: chunked
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+...
+&lt;/html&gt;
+</code></pre><p>This confirms the <code>/examples/employees/</code> resource is now protected by the <code>example.employees</code> Privilege.</p><h3>Verify First Party Access</h3><p><a name="create-end-user"></a></p><h4>Create an End User</h4><p>Create a test user with the <code>HR Administrator</code> role, required to access the <code>examples.employees</code> Privilege using the file based user repository, execute the following command, in a command prompt</p>
+<pre><code>java -jar ords.war user &quot;hr_admin&quot; &quot;HR Administrator&quot;
+</code></pre><p>You will be prompted for a password, enter a password and confirm the password.</p><h4>Sign in as the End User</h4><p>Enter the following URL in a web browser:</p>
+<pre><code>https://example.com/ords/resteasy/examples/employees/
+</code></pre>
+<ul>
+  <li>A page will be displayed indicating that access is denied.</li>
+  <li>Click the link on the page to sign in.</li>
+  <li>Enter the credentials registered above for the <code>hr_admin</code> user and click the sign in button.</li>
+  <li>Confirm the page redirects to <code>https://example.com/ords/resteasy/examples/employees/</code> and the JSON document is displayed.</li>
+</ul><p>This confirms that the protected resource can be accessed via first party authentication, next we will access the resource using third party authentication, using OAuth.</p><h2>Register OAuth Client</h2><p>Execute the following PL/SQL commands, while connected as schema <code>RESTEASY</code>:</p>
+<pre><code>begin 
+ oauth.create_client(
+      p_name =&gt; &#39;Client Credentials Example&#39;,
+      p_grant_type =&gt; &#39;client_credentials&#39;,
+      p_privilege_names =&gt; &#39;example.employees&#39;,
+      p_support_email =&gt; &#39;support@example.com&#39;);
+ commit;
+end;
+</code></pre><p>This command registers a client named <code>Client Credentials Example</code>, to access the <code>examples.employees</code> privilege using the client credentials OAuth flow.</p><h3>Verify OAuth Client</h3><p>Execute the following SQL, while connected as schema <code>RESTEASY</code></p>
+<pre><code>select client_id,client_secret from user_ords_clients where name = &#39;Client Credentials Example&#39;;
+</code></pre><p>Output similar to the following should be shown:</p>
+<pre><code>CLIENT_ID                        CLIENT_SECRET                   
+-------------------------------- ------------------------
+o_CZBVkEMN23tTB-IddQsQ..         4BJXceufbmTki-vruYNLIg..         
+
+</code></pre><p>Note:</p>
+<ul>
+  <li>The <code>client_id</code> and <code>client_secret</code> values represent the secret credentials for the OAuth Client. These values must be  noted and kept secure. You can think of them as the userid and password for the client application.</li>
+</ul><p>The client is now registered and has requested access to the <code>examples.employees</code> privilege. To grant access to the privilege, the client must be granted the role required by the privilege. </p><h2>Grant OAuth Client required role</h2><p>Execute the following PL/SQL commands, while connected as schema <code>RESTEASY</code>:</p>
+<pre><code>exec oauth.grant_client_role(
+    &#39;Client Credentials Example&#39;,
+    &#39;HR Administrator&#39;);
+commit;
+
+</code></pre><h3>Verify Client Role</h3><p>Execute the following SQL, while connected as schema <code>RESTEASY</code></p>
+<pre><code>select * from user_ords_client_roles where name = &#39;Client Credentials Example&#39;;
+</code></pre><p>Output similar to the following should be shown:</p>
+<pre><code> CLIENT_ID CLIENT_NAME                       ROLE_ID ROLE_NAME                     
+---------- ------------------------------ ---------- ------------------------------
+     10286 Client Credentials Example          10222 HR Administrator               
+</code></pre><h2>Obtain OAuth access token using Client Credentials Flow</h2><p>The OAuth protocol specifies the HTTP request that must be used to create an access token using the [client credentials flow][rfc6749-4.4.]. </p><p>The request must be made to a well known URL, called the <a href="https://tools.ietf.org/html/rfc6749#section-3.2">token endpoint</a>. For ORDS the path of the token endpoint is always <code>oauth/token</code>, relative to the root path of the schema being accessed. The token endpoint for this example is:</p>
+<pre><code>https://example.com/ords/resteasy/oauth/token
+</code></pre><p>Execute the following <a href="http://curl.haxx.se">cURL</a> command:</p>
+<pre><code>curl -i --user clientId:clientSecret --data &quot;grant_type=client_credentials&quot; https://example.com/ords/resteasy/oauth/token
+</code></pre>
+<ul>
+  <li>Replace <code>clientId</code> with the value of the <code>client_id</code> shown in <code>USER_ORDS_CLIENTS</code> for <code>Client Credentials Client</code>.</li>
+  <li>Replace <code>clientSecret</code> with the value of the <code>client_secret</code> shown in <code>USER_ORDS_CLIENTS</code> for <code>Client Credentials Client</code>.</li>
+</ul><p>Output similar to the following should be shown:</p>
+<pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+ &quot;access_token&quot;: &quot;2YotnFZFEjr1zCsicMWpAA&quot;,
+ &quot;token_type&quot;:   &quot;bearer&quot;,
+ &quot;expires_in&quot;:3600
+}
+</code></pre><p>Note the access token is of type <code>bearer</code>, and the value is specified by the <code>access_token</code> field. This value will be different for every request, note it's value, as it will be used in the next section. The <code>expires_in</code> value indicates the number of seconds until the access token expires, in this case the token will expire in one hour.</p><h2>Access protected resource using access token</h2><p>Now that we have an access token, we can use it to access the protected <code>/examples/employees/</code> resource.</p><p>Execute the following <a href="http://curl.haxx.se">cURL</a> command:</p>
+<pre><code>curl -i -H&quot;Authorization: Bearer accessToken&quot; https://example.com/ords/resteasy/examples/employees/
+</code></pre>
+<ul>
+  <li>Replace <code>accessToken</code> with the value of the <code>access_token</code> field shown in the previous step.</li>
+</ul><p>The following results should be shown:</p>
+<pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+ TBC
+}
+</code></pre><h2>Register Client for Authorization Code Flow</h2><p>Execute the following PL/SQL commands, while connected as schema <code>RESTEASY</code>:</p>
+<pre><code>exec oauth.create_client(
+    &#39;Authorization Code Example&#39;,
+    &#39;client_credentials&#39;,    
+    &#39;example.employees&#39;,
+    &#39;http://example.org/auth/code/example/&#39;,
+    &#39;support@example.org&#39;,
+    &#39;http://example.org/support&#39;,
+    &#39;Sample Application for demonstrating Authorization Code Flow&#39;);
+commit;
+</code></pre><p>This command registers a client named <code>Authorization Code Example</code>, to access the <code>examples.employees</code> privilege using the Authorization code OAuth flow.</p>
+<ul>
+  <li>For a real application a URI must be provided to redirect back to with the Authorization code. For this example we  create a fake URI using the <a href="http://example.org"><code>example.org</code></a> example web service.</li>
+  <li>Similarly a real application must supply a support email address and URI, again we fabricate values using the <code>example.org</code> service.</li>
+</ul><h3>Verify OAuth Client</h3><p>Execute the following SQL, while connected as schema <code>RESTEASY</code></p>
+<pre><code>select * from user_ords_clients where name = &#39;Authorization Code Example&#39;;
+</code></pre><p>The following results should be shown:</p>
+<pre><code>TBC
+</code></pre><p>Note:</p>
+<ul>
+  <li>The <code>client_id</code> and <code>client_secret</code> values represent the secret credentials for the OAuth Client. These values must be  noted and kept secure.</li>
+</ul><p>The client is now registered and has requested access to the <code>examples.employees</code> privilege. To grant access to the privilege, an end user must approve access.</p><h2>Obtain OAuth access token using Authorization Code Flow</h2><p><strong>Tip</strong> To complete this section you must previously have created an end user (<code>hr_admin</code>), see the section titled <a href="#create-end-user">Create End User</a>.</p><h3>Obtain OAuth Authorization code</h3><p>The first step in the Authorization code flow is for the end user to be prompted (via a web page) to sign in and approve access to the third party application. The third party application initiates this process by directing the user to the <a href="https://tools.ietf.org/html/rfc6749#section-3.1">OAuth Authorization Endpoint</a>. For ORDS the path of the authorization endpoint is always <code>oauth/auth</code>, relative to the root path of the schema being accessed. The token endpoint for this example is:</p>
+<pre><code>https://example.com/ords/resteasy/oauth/auth
+</code></pre><p>The OAuth 2.0 protocol specifies that the Authorization request URI <a href="https://tools.ietf.org/html/rfc6749#section-4.1.1">must include certain parameters in the query string</a> :</p>
+<ul>
+  <li>The <code>response_type</code> parameter must have a value of <code>code</code></li>
+  <li>The <code>client_id</code> parameter must contain the value of the applications client identifier. This is  the <code>client_id</code> value determined in the previous section</li>
+  <li>The <code>state</code> parameter must contain a unique unguessable value. This value serves two purposes:</li>
+  <li>Provides a way for the client application to uniquely identify each Authorization request (and therefore associate any application specific state with the value, think of the value as the application's own session identifier).</li>
+  <li>Provides a means for the client application to protect against Cross Site Request Forgery (CSRF) attacks. The state value will be returned in the redirect URI at the end of the Authorization process. The client must confirm that the value belongs to an Authorization request initiated by the application. If the client cannot validate the state value, then it should assume that the Authorization request was initiated by an attacker and ignore the redirect.</li>
+</ul><p>To initiate the Authorization request enter the following URL in a web browser:</p>
+<pre><code>https://example.com/ords/resteasy/oauth/auth?response_type=code&amp;client_id=cliendId&amp;state=uniqueRandomValue
+</code></pre><p>Note:</p>
+<ul>
+  <li>Replace <code>clientId</code> with the value of the <code>client_id</code> column that was noted in the previous section</li>
+  <li>Replace <code>uniqueRandromValue</code> with a unique unguessable value. The client application must remember this value and verify it against  the <code>state</code> parameter returned as part of the redirect at the end of the Authorization flow.</li>
+</ul><p>If the <code>client_id</code> is recognised then a sign in prompt will be displayed.</p>
+<ul>
+  <li>Enter the credentials of the <code>hr_admin</code> end user, and click the 'Sign In' button.</li>
+  <li>A prompt will be displayed showing the details of the 'Authorization Code Example', and buttons to 'Approve' or 'Deny' access.</li>
+  <li>Click the 'Approve' button, the web browser will now redirect to the</li>
+</ul><p>The browser will now be redirected to the redirect URI specified when the client was registered. The redirect URI will include the Authorization code in the query string portion of the URI. It will also include the same <code>state</code> parameter value that the client provided at the start of the flow. The redirect URI will look like the following:</p>
+<pre><code>http://example.org/auth/code/example/?code=D5doeTSIDgbxWiWkPl9UpA..&amp;state=uniqueRandomValue
+</code></pre><p>The client application must verify the value of the <code>state</code> parameter and then note the value of the <code>code</code> parameter, it will be used in the next section to obtain an access token.</p><h3>Obtain OAuth Access Token</h3><p>Now that the third party application has an Authorization code, it must exchange it for an access token. The third party application's server must make a HTTPS request to the <a href="https://tools.ietf.org/html/rfc6749#section-3.2">Token Endpoint</a>. </p><p>We will mimic the server making this request using a <a href="http://curl.haxx.se">cURL</a> command, execute the following command in a command prompt:</p>
+<pre><code>curl --user clientId:clientSecret --data &quot;grant_type=authorization_code&amp;code=authorizationCode&quot; https://example.com/ords/resteasy/oauth/token
+</code></pre>
+<ul>
+  <li>Replace <code>clientId</code> with the value of the <code>client_id</code> shown in <code>USER_ORDS_CLIENTS</code> for <code>Client Credentials Client</code>.</li>
+  <li>Replace <code>clientSecret</code> with the value of the <code>client_secret</code> shown in <code>USER_ORDS_CLIENTS</code> for <code>Client Credentials Client</code>.</li>
+  <li>Replace <code>authorizationCode</code> with the value of the Authorization code noted in the previous section (the value of the <code>code</code> parameter).</li>
+</ul><p>The following results should be shown:</p>
+<pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+ &quot;access_token&quot;: &quot;psIGSSEXSBQyib0hozNEdw..&quot;,
+ &quot;token_type&quot;:   &quot;bearer&quot;,
+ &quot;expires_in&quot;:3600,
+ &quot;refresh_token&quot;: &quot;aRMg7AdWPuDvnieHucfV3g..&quot;
+}
+</code></pre><p>Note:</p>
+<ul>
+  <li>The access token is specified in the <code>access_token</code> field.</li>
+  <li>A refresh token is also supplied, in the <code>refresh_token</code> field. This value can be used to extend the user session  without requiring the user to reauthorise the third party application.</li>
+</ul><h3>Access protected resource using access token</h3><p>Now that we have an access token, we can use it to access the protected <code>/examples/employees/</code> resource.</p><p>Execute the following <a href="http://curl.haxx.se">cURL</a> command:</p>
+<pre><code>curl -H&quot;Authorization: Bearer accessToken&quot; https://example.com/ords/resteasy/examples/employees/
+</code></pre>
+<ul>
+  <li>Replace <code>accessToken</code> with the value of the <code>access_token</code> field shown in the previous step.</li>
+</ul><p>The following results should be shown:</p>
+<pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+ TBC
+}
+</code></pre><h3>Extend session using Refresh Token</h3><p>At any time the third party application can use the refresh token value supplied at the same time as the access token to generate a new access token with a new lifetime. This enables the third party application to extend the user session at will. To do this the third party application's server must make a HTTPS request to the <a href="https://tools.ietf.org/html/rfc6749#section-3.2">Token Endpoint</a>.</p><p>We will mimic the server making this request using a <a href="http://curl.haxx.se">cURL</a> command, execute the following command in a command prompt:</p>
+<pre><code>curl --user clientId:clientSecret --data &quot;grant_type=authorization_code&amp;code=authorizationCode&quot; https://example.com/ords/resteasy/oauth/token
+</code></pre>
+<ul>
+  <li>Replace <code>clientId</code> with the value of the <code>client_id</code> shown in <code>USER_ORDS_CLIENTS</code> for <code>Client Credentials Client</code>.</li>
+  <li>Replace <code>clientSecret</code> with the value of the <code>client_secret</code> shown in <code>USER_ORDS_CLIENTS</code> for <code>Client Credentials Client</code>.</li>
+  <li>Replace <code>authorizationCode</code> with the value of the Authorization code noted in the previous section (the value of the <code>code</code> parameter).</li>
+</ul><p>The following results should be shown:</p>
+<pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+ &quot;access_token&quot;:  &quot;psIGSSEXSBQyib0hozNEdw..&quot;,
+ &quot;token_type&quot;:    &quot;bearer&quot;,
+ &quot;refresh_token&quot;: &quot;aRMg7AdWPuDvnieHucfV3g..&quot;,
+ &quot;expires_in&quot;:    3600
+}
+</code></pre><p>Note:</p>
+<ul>
+  <li>The access token is specified in the <code>access_token</code> field.</li>
+  <li>A new refresh token is also supplied, in the <code>refresh_token</code> field. This value can be used to extend the user session  without requiring the user to reauthorise the third party application.</li>
+  <li>The previous access token and refresh token become invalid, the new values must be used instead.</li>
+</ul><h2>Register Client for Implicit Flow</h2><p>Execute the following PL/SQL commands, while connected as schema <code>RESTEASY</code>:</p>
+<pre><code>exec oauth.create_client(
+    &#39;Implicit Example&#39;,
+    &#39;client_credentials&#39;,    
+    &#39;example.employees&#39;,
+    &#39;http://example.org/implicit/example/&#39;,
+    &#39;support@example.org&#39;,
+    &#39;http://example.org/support&#39;,
+    &#39;Sample Application for demonstrating Implicit Flow&#39;);
+commit;
+</code></pre><p>This command registers a client named <code>Implicit Example</code>, to access the <code>examples.employees</code> privilege using the implicit OAuth flow.</p>
+<ul>
+  <li>For a real application a URI must be provided to redirect back to with the implicit. For this example we  create a fake URI using the <a href="http://example.org"><code>example.org</code></a> example web service.</li>
+  <li>Similarly a real application must supply a support email address and URI, again we fabricate values using the <code>example.org</code> service.</li>
+</ul><h3>Verify OAuth Client</h3><p>Execute the following SQL, while connected as schema <code>RESTEASY</code></p>
+<pre><code>select * from user_ords_clients where name = &#39;Implicit Example&#39;;
+</code></pre><p>The following results should be shown:</p>
+<pre><code>TBC
+</code></pre><p>Note:</p>
+<ul>
+  <li>The <code>client_id</code> values identifies the client application. This value should be noted.</li>
+</ul><p>The client is now registered and has requested access to the <code>examples.employees</code> privilege. To grant access to the privilege, an end user must approve access.</p><h2>Obtain OAuth access token using Implicit Flow</h2><p><strong>Tip</strong> To complete this section you must previously have created an end user (<code>hr_admin</code>), see the section titled <a href="#create-end-user">Create End User</a>.</p><p>The first step in the implicit flow is for the end user to be prompted (via a web page) to sign in and approve access to the third party application. The third party application initiates this process by directing the user to the <a href="https://tools.ietf.org/html/rfc6749#section-3.1">OAuth Authorization Endpoint</a>. For ORDS the path of the authorization endpoint is always <code>oauth/auth</code>, relative to the root path of the schema being accessed. The token endpoint for this example is:</p>
+<pre><code>https://example.com/ords/resteasy/oauth/auth
+</code></pre><p>The OAuth 2.0 protocol specifies that the Authorization request URI <a href="https://tools.ietf.org/html/rfc6749#section-4.1.1">must include certain parameters in the query string</a> :</p>
+<ul>
+  <li>The <code>response_type</code> parameter must have a value of <code>token</code></li>
+  <li>The <code>client_id</code> parameter must contain the value of the applications client identifier. This is  the <code>client_id</code> value determined in the previous section</li>
+  <li>The <code>state</code> parameter must contain a unique unguessable value. This value serves two purposes:</li>
+  <li>Provides a way for the client application to uniquely identify each Authorization request (and therefore associate any application specific state with the value, think of the value as the application's own session identifier).</li>
+  <li>Provides a means for the client application to protect against Cross Site Request Forgery (CSRF) attacks. The state value will be returned in the redirect URI at the end of the Authorization process. The client must confirm that the value belongs to an Authorization request initiated by the application. If the client cannot validate the state value, then it should assume that the Authorization request was initiated by an attacker and ignore the redirect.</li>
+</ul><p>To initiate the Authorization request enter the following URL in a web browser:</p>
+<pre><code>https://example.com/ords/resteasy/oauth/auth?response_type=token&amp;client_id=cliendId&amp;state=uniqueRandomValue
+</code></pre><p>Note:</p>
+<ul>
+  <li>Replace <code>clientId</code> with the value of the <code>client_id</code> column that was noted in the previous section</li>
+  <li>Replace <code>uniqueRandromValue</code> with a unique unguessable value. The client application must remember this value and verify it against  the <code>state</code> parameter returned as part of the redirect at the end of the Authorization flow.</li>
+</ul><p>If the <code>client_id</code> is recognised then a sign in prompt will be displayed.</p>
+<ul>
+  <li>Enter the credentials of the <code>hr_admin</code> end user, and click the 'Sign In' button.</li>
+  <li>A prompt will be displayed showing the details of the 'Implicit Example', and buttons to 'Approve' or 'Deny' access.</li>
+  <li>Click the 'Approve' button, the web browser will now redirect to the</li>
+</ul><p>The browser will now be redirected to the redirect URI specified when the client was registered. The redirect URI will include the access token in the fragment portion of the URI. It will also include the same <code>state</code> parameter value that the client provided at the start of the flow. The redirect URI will look like the following:</p>
+<pre><code>http://example.org/auth/code/example/#access_token=D5doeTSIDgbxWiWkPl9UpA..&amp;type=bearer&amp;expires_in=3600&amp;state=uniqueRandomValue
+</code></pre><p>The client application must verify the value of the <code>state</code> parameter and then store the value of the <code>access_token</code> parameter. </p><h3>Access protected resource using access token</h3><p>Now that we have an access token, we can use it to access the protected <code>/examples/employees/</code> resource.</p><p>Execute the following <a href="http://curl.haxx.se">cURL</a> command:</p>
+<pre><code>curl -H&quot;Authorization: Bearer accessToken&quot; https://example.com/ords/resteasy/examples/employees/
+</code></pre>
+<ul>
+  <li>Replace <code>accessToken</code> with the value of the <code>access_token</code> field shown in the previous step.</li>
+</ul><p>The following results should be shown:</p>
+<pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+ TBC
+}
+</code></pre>
+</body>
+</html>

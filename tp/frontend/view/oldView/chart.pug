@@ -1,0 +1,51 @@
+doctype
+html
+	head
+		title DataBase Monitor
+		link(rel='stylesheet', href='../stylesheets/style.css')
+		script setTimeout(function(){location.reload();},10000);
+		script(type="text/javascript",src="https://www.gstatic.com/charts/loader.js")
+		script(type="text/javascript") google.charts.load('current', {'packages':['corechart']});google.charts.setOnLoadCallback(drawChart);function drawChart() {var data = new google.visualization.DataTable();data.addColumn('string', 'Users');data.addColumn('number', 'Units');data.addRows([#{lista}]);var options = {'title':#{nome},'width':1000,'height':450};var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));chart.draw(data, options);}
+		meta(charset='UTF-8')
+	body
+		.w3-card-4
+			header.w3-container.w3-teal
+				h1 DataBase Monitor
+			.w3-container
+				.w3-row
+					.w3-col.m4.l2
+						h3 Queries disponívies
+						ul
+						li
+							a.w3-button.w3-teal(href='http://localhost:5000/datafiles' style='padding:8px 26px') DataFiles
+						br
+						li
+							a.w3-button.w3-teal(href='http://localhost:5000/sessions' style='padding:8px 29px') Sessions
+						br
+						li
+							a.w3-button.w3-teal(href='http://localhost:5000/cpu' style='padding:8px 45.5px') CPU
+						br
+						li
+							a.w3-button.w3-teal(href='http://localhost:5000/cpuhist' style='padding:8px 21.5px') CPU (Hist)
+						br
+						li
+							a.w3-button.w3-teal(href='http://localhost:5000/pga' style='padding:8px 45.5px') PGA
+						br
+						li
+							a.w3-button.w3-teal(href='http://localhost:5000/pgahist' style='padding:8px 21.5px') PGA (Hist)
+						br
+						li
+							a.w3-button.w3-teal(href='http://localhost:5000/sga' style='padding:8px 45.5px') SGA
+						br
+						li
+							a.w3-button.w3-teal(href='http://localhost:5000/sgahist' style='padding:8px 21.5px') SGA (Hist)
+						br
+						li
+							a.w3-button.w3-teal(href='http://localhost:5000/tablespaces') Tablespaces
+						br
+						li
+							a.w3-button.w3-teal(href='http://localhost:5000/users' style='padding:8px 40px') Users
+					.w3-col.m8.l10
+						h3 Resultados
+						div(id="chart_div")
+						

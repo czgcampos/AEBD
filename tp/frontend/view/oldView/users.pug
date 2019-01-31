@@ -1,0 +1,24 @@
+extends header
+block content
+	table.w3-table-all.w3-responsive
+		tr
+			th Username
+			th Acc Status
+			th Common
+			th Expiry Date
+			th Default Tablespace
+			th Temp Tablespace
+			th Profile
+			th Created
+			th Timestamp
+		each ur in lista
+			tr
+				td= ur.username
+				td= ur.accstatus
+				td= ur.common
+				td= ur.expirydate
+				td= ur.defaulttablespace
+				td= ur.temptablespace
+				td= ur.profile
+				td= ur.created
+				td= ur.timestamp

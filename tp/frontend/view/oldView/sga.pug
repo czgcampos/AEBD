@@ -1,0 +1,12 @@
+extends header
+block content
+	table.w3-table-all.w3-responsive
+		tr
+			th Name
+			th Total
+			th Timestamp
+		each sga in lista
+			tr
+				td= sga.name
+				td= sga.total
+				td= sga.timestamp

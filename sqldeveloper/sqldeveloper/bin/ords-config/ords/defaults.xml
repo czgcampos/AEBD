@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Saved on Fri Dec 28 01:00:02 GMT 2018</comment>
+<entry key="cache.caching">false</entry>
+<entry key="cache.directory">/tmp/apex/cache</entry>
+<entry key="cache.duration">days</entry>
+<entry key="cache.expiration">7</entry>
+<entry key="cache.maxEntries">500</entry>
+<entry key="cache.monitorInterval">60</entry>
+<entry key="cache.procedureNameList"/>
+<entry key="cache.type">lru</entry>
+<entry key="db.hostname">localhost</entry>
+<entry key="db.port">1521</entry>
+<entry key="db.servicename">orcl</entry>
+<entry key="debug.debugger">false</entry>
+<entry key="debug.printDebugToScreen">false</entry>
+<entry key="error.keepErrorMessages">true</entry>
+<entry key="error.maxEntries">50</entry>
+<entry key="jdbc.DriverType">thin</entry>
+<entry key="jdbc.InactivityTimeout">1800</entry>
+<entry key="jdbc.InitialLimit">3</entry>
+<entry key="jdbc.MaxConnectionReuseCount">1000</entry>
+<entry key="jdbc.MaxLimit">10</entry>
+<entry key="jdbc.MaxStatementsLimit">10</entry>
+<entry key="jdbc.MinLimit">1</entry>
+<entry key="jdbc.statementTimeout">900</entry>
+<entry key="log.logging">false</entry>
+<entry key="log.maxEntries">50</entry>
+<entry key="misc.compress"/>
+<entry key="misc.defaultPage">apex</entry>
+<entry key="security.crypto.enc.password">20yvJdpnYdhyPfZhdLf8Ag..</entry>
+<entry key="security.crypto.mac.password">b887_zgCpflmP1yNWVd51A..</entry>
+<entry key="security.disableDefaultExclusionList">false</entry>
+<entry key="security.maxEntries">2000</entry>
+<entry key="security.verifySSL">false</entry>
+</properties>

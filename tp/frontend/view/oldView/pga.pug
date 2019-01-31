@@ -1,0 +1,12 @@
+extends header
+block content
+	table.w3-table-all.w3-responsive
+		tr
+			th Name
+			th Used PGA
+			th Timestamp
+		each pga in lista
+			tr
+				td= pga.name
+				td= pga.usedpga
+				td= pga.timestamp

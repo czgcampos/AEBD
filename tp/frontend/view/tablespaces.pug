@@ -1,0 +1,22 @@
+extends header
+block content
+	table.w3-table-all.w3-responsive
+		tr
+			th Name
+			th File Count
+			th Size
+			th Free
+			th Used
+			th Max Extend
+			th Perc Free
+			th Timestamp
+		each ts in lista
+			tr
+				td= ts.name
+				td= ts.filecount
+				td= ts.size
+				td= ts.free
+				td= ts.used
+				td= ts.maxextend
+				td= ts.percfree
+				td= ts.timestamp
